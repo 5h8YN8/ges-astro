@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://app.generativeenginesolutions.com/sitemap.xml
+Sitemap: https://generativeenginesolutions.com/sitemap.xml

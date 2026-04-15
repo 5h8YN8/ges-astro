@@ -6,9 +6,9 @@ GES helps businesses improve their visibility and citation rate in AI-powered se
 
 ## Core Pages
 
-- [Homepage](https://app.generativeenginesolutions.com/): Overview of the GES platform and its 5 modules
-- [What is AEO?](https://app.generativeenginesolutions.com/what-is-aeo): Comprehensive guide to Answer Engine Optimization
-- [Pricing](https://app.generativeenginesolutions.com/pricing): Three tiers, Free ($0, 5 credits), Growth ($299/mo, 50 credits), Scale ($799/mo, 200 credits)
+- [Homepage](https://generativeenginesolutions.com/): Overview of the GES platform and its 5 modules
+- [What is AEO?](https://generativeenginesolutions.com/what-is-aeo): Comprehensive guide to Answer Engine Optimization
+- [Pricing](https://generativeenginesolutions.com/pricing): Three tiers, Free ($0, 5 credits), Growth ($299/mo, 50 credits), Scale ($799/mo, 200 credits)
 
 ## Modules
 
@@ -22,5 +22,5 @@ GES helps businesses improve their visibility and citation rate in AI-powered se
 
 - Founded: 2026
 - Category: SaaS, AI, SEO/AEO/GEO
-- Website: https://app.generativeenginesolutions.com
+- Website: https://generativeenginesolutions.com
 - Social: https://x.com/generativeengin
