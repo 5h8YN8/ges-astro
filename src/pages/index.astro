@@ -8,9 +8,9 @@ const orgSchema = {
   "@type": "Organization",
   "name": "Generative Engine Solutions",
   "alternateName": "GES",
-  "url": "https://app.generativeenginesolutions.com",
-  "logo": "https://app.generativeenginesolutions.com/images/logo-dark.png",
-  "description": "Self-serve platform for Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO). Helps businesses get cited by AI search engines.",
+  "url": "https://generativeenginesolutions.com",
+  "logo": "https://generativeenginesolutions.com/images/logo-dark.png",
+  "description": "Generative Engine Solutions is an all-in-one platform for GEO (Generative Engine Optimization). Start with AEO to create citable pages, decision-stage content, and schema that turn AI engines into a customer acquisition channel.",
   "sameAs": ["https://x.com/generativeengin"]
 };
 
@@ -26,21 +26,21 @@ const appSchema = {
       "price": "0",
       "priceCurrency": "USD",
       "name": "Free",
-      "description": "5 credits, Module 1 AEO Report"
+      "description": "5 credits, AEO Intelligence Report, 6-engine visibility analysis"
     },
     {
       "@type": "Offer",
       "price": "299",
       "priceCurrency": "USD",
       "name": "Growth",
-      "description": "50 credits/mo, All 5 modules"
+      "description": "50 credits/mo, All 5 AEO modules, Full content strategy"
     },
     {
       "@type": "Offer",
       "price": "799",
       "priceCurrency": "USD",
       "name": "Scale",
-      "description": "200 credits/mo, All 5 modules, Custom onboarding"
+      "description": "200 credits/mo, All 5 AEO modules, Custom onboarding"
     }
   ]
 };
@@ -51,26 +51,34 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is AEO and why does it matter?",
+      "name": "What is GEO and how is it different from SEO?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Answer Engine Optimization (AEO) is the practice of optimizing your brand's content so AI systems like ChatGPT, Perplexity, and Google's AI Overview cite you in their answers. As more users skip traditional search results in favor of AI-generated answers, brands invisible to these engines lose traffic and revenue."
+        "text": "Generative Engine Optimization (GEO) is the practice of making your brand visible, citable, and transactable across AI-powered search engines. Traditional SEO optimizes for keyword rankings on Google. GEO optimizes for citation, including structured data, proof points, reputation signals, and agent-ready infrastructure that AI engines use to recommend and transact."
       }
     },
     {
       "@type": "Question",
-      "name": "What is the difference between AEO and GEO?",
+      "name": "What are the four layers of GEO?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Answer Engine Optimization (AEO) focuses on making your content citable by AI search engines like ChatGPT and Perplexity. Generative Engine Optimization (GEO) is broader, covering reputation management, agent-to-agent protocols, API discovery, and commerce readiness. GES launches with AEO and will expand to full GEO capabilities."
+        "text": "GEO is a maturity model with four layers: (1) AEO, creating citable pages and schema that AI engines cite; (2) Reputation, building corroboration signals across third-party platforms; (3) Agentic, making your business discoverable and usable by AI agents; (4) Commerce, enabling AI agents to complete transactions on your behalf."
       }
     },
     {
       "@type": "Question",
-      "name": "How does GES differ from traditional SEO?",
+      "name": "What is AEO and why start there?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Traditional SEO optimizes for keyword rankings. Generative Engine Solutions (GES) optimizes for AI citation, structured data, proof points, and content formats that LLMs are trained to reference and quote."
+        "text": "Answer Engine Optimization (AEO) is the first and most actionable layer of GEO. It focuses on creating structured, citable content that AI engines pull from when answering buyer questions. It is where most brands have the biggest gap and the biggest opportunity right now."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the free AEO report include?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The free AEO Intelligence Report analyzes your brand's visibility across 6 AI search engines, including ChatGPT, Perplexity, Gemini, Claude, Copilot, and Meta AI, and gives you actionable recommendations to improve your citation rate."
       }
     },
     {
@@ -78,7 +86,7 @@ const faqSchema = {
       "name": "How long does it take to see results?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most clients see measurable citation improvements within 4 to 8 weeks of deploying GES-optimized pages."
+        "text": "Most clients see measurable citation improvements within 4 to 8 weeks of deploying AEO-optimized pages."
       }
     },
     {
@@ -86,7 +94,15 @@ const faqSchema = {
       "name": "What are credits?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Credits are consumed each time you run a module. Module 2 (Schema) costs 1 credit, Module 3 (Intelligence) costs 2 credits per scan, Module 4 (Strategy) costs 8 to 20 credits depending on volume, and Module 5 (Page generation) costs 1 credit per page."
+        "text": "Credits are consumed each time you run a module. The AEO Report is free. Schema Builder costs 1 credit, Intelligence Hub costs 2 credits per scan, Content Strategy costs 8 to 20 credits depending on volume, and Page Converter costs 1 credit per page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When will Reputation, Agentic, and Commerce layers launch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GES launches with full AEO capabilities. The Reputation layer is next on the roadmap, followed by Agentic and Commerce. Each layer builds on the foundation of the previous one. AEO creates the citable content, Reputation extends trust signals, Agentic makes you agent-discoverable, and Commerce closes the loop."
       }
     },
     {
@@ -94,7 +110,7 @@ const faqSchema = {
       "name": "Can I cancel anytime?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. All paid plans are month-to-month with no long-term contracts. You can cancel or downgrade from the Settings page at any time."
+        "text": "Yes. All paid plans are month-to-month with no long-term contracts. Cancel or downgrade from Settings > Billing at any time."
       }
     }
   ]
@@ -104,23 +120,23 @@ const modules = [
   {
     number: 1,
     name: "AEO Intelligence Report",
-    description: "Free AEO Intelligence Report: See how visible your brand is across 6 AI search engines.",
-    detail: "Scans ChatGPT, Perplexity, Claude, Google AI Overview, Gemini, and Copilot to measure your citation rate and surface specific gaps.",
+    description: "Free report: See how visible your brand is across 6 AI search engines and get actionable recommendations.",
+    detail: "Scans ChatGPT, Perplexity, Claude, Gemini, Copilot, and Meta AI to measure your citation rate and surface specific gaps.",
     free: true,
     icon: "📊",
   },
   {
     number: 2,
     name: "Org Schema Builder",
-    description: "Generate JSON-LD @graph markup that LLMs can parse.",
+    description: "Generate JSON-LD @graph markup that gives AI engines structured, citable data about your business.",
     detail: "Produces standards-compliant Organization, Product, and FAQ schema that structured-data crawlers and language models use to understand your brand.",
     free: false,
     icon: "🔧",
   },
   {
     number: 3,
-    name: "Company Intelligence",
-    description: "Build the proof-point library AI engines cite.",
+    name: "Company Intelligence Hub",
+    description: "Build the proof-point library that AI engines reference when they need corroboration.",
     detail: "Collects and organizes factual claims, statistics, and brand differentiators into a citable knowledge base that LLMs surface in brand-related queries.",
     free: false,
     icon: "🔍",
@@ -128,7 +144,7 @@ const modules = [
   {
     number: 4,
     name: "ICP Content Strategy",
-    description: "Map 30 to 100 pages to buyer questions AI answers.",
+    description: "Map 30 to 100 decision-stage pages to the buyer questions AI engines are answering right now.",
     detail: "Identifies the exact questions your ideal customers ask AI engines and maps a content plan that positions your brand as the authoritative answer.",
     free: false,
     icon: "🗺️",
@@ -136,17 +152,109 @@ const modules = [
   {
     number: 5,
     name: "Page Converter",
-    description: "Transform existing pages into LLM-optimized assets.",
+    description: "Transform existing pages into LLM-optimized, citable assets that own the conversation.",
     detail: "Rewrites or restructures your existing content to use the heading hierarchy, semantic structure, and factual density that language models prefer to quote.",
     free: false,
     icon: "✨",
   },
 ];
+
+const geoLayers = [
+  {
+    number: 1,
+    status: "Available now",
+    statusColor: "text-emerald-400",
+    statusBg: "bg-emerald-400/10 border-emerald-400/20",
+    name: "AEO: Build the pages AI engines cite",
+    description: "Create citable, decision-stage content that owns the conversational flow. LLM-optimized pages, JSON-LD schema, and structured proof points that make your brand the answer.",
+    highlight: true,
+  },
+  {
+    number: 2,
+    status: "Coming soon",
+    statusColor: "text-purple-400",
+    statusBg: "bg-purple-400/10 border-purple-400/20",
+    name: "Reputation: Build the trust layer around your brand",
+    description: "Shape your brand story across the third-party platforms where AI engines gather corroboration signals, including X, LinkedIn, Reddit, Quora, Pinterest, and review sites.",
+    highlight: false,
+  },
+  {
+    number: 3,
+    status: "On roadmap",
+    statusColor: "text-white/40",
+    statusBg: "bg-white/5 border-white/10",
+    name: "Agentic: Make your business usable by AI agents",
+    description: "Structure your data and endpoints so AI agents can evaluate your offerings, compare options, and act on a customer's behalf.",
+    highlight: false,
+  },
+  {
+    number: 4,
+    status: "On roadmap",
+    statusColor: "text-white/40",
+    statusBg: "bg-white/5 border-white/10",
+    name: "Commerce: Enable agent-ready buying",
+    description: "Let AI agents complete transactions, from product selection to checkout, so your business captures revenue in an agent-first world.",
+    highlight: false,
+  },
+];
+
+const testimonials = [
+  {
+    quote: "GES took us from 0 AI citations to 47 in 6 weeks. Our brand is now part of the conversation.",
+    name: "Sarah K.",
+    title: "VP Marketing, B2B SaaS Co.",
+  },
+  {
+    quote: "Our AI-referred organic traffic increased 312% after deploying AEO-optimized pages.",
+    name: "Marcus T.",
+    title: "Head of Growth, E-commerce Brand",
+  },
+  {
+    quote: "The intelligence hub alone justified the investment. We finally have data that LLMs actually cite.",
+    name: "Priya R.",
+    title: "Content Director, FinTech Startup",
+  },
+];
+
+const faqs = [
+  {
+    question: "What is GEO and how is it different from SEO?",
+    answer: "Generative Engine Optimization (GEO) is the practice of making your brand visible, citable, and transactable across AI-powered search engines. Traditional SEO optimizes for keyword rankings on Google. GEO optimizes for citation, including structured data, proof points, reputation signals, and agent-ready infrastructure that AI engines use to recommend and transact.",
+  },
+  {
+    question: "What are the four layers of GEO?",
+    answer: "GEO is a maturity model with four layers: (1) AEO, creating citable pages and schema that AI engines cite; (2) Reputation, building corroboration signals across third-party platforms; (3) Agentic, making your business discoverable and usable by AI agents; (4) Commerce, enabling AI agents to complete transactions on your behalf.",
+  },
+  {
+    question: "What is AEO and why start there?",
+    answer: "Answer Engine Optimization (AEO) is the first and most actionable layer of GEO. It focuses on creating structured, citable content that AI engines pull from when answering buyer questions. It is where most brands have the biggest gap and the biggest opportunity right now.",
+  },
+  {
+    question: "What does the free AEO report include?",
+    answer: "The free AEO Intelligence Report analyzes your brand's visibility across 6 AI search engines, including ChatGPT, Perplexity, Gemini, Claude, Copilot, and Meta AI, and gives you actionable recommendations to improve your citation rate.",
+  },
+  {
+    question: "How long does it take to see results?",
+    answer: "Most clients see measurable citation improvements within 4 to 8 weeks of deploying AEO-optimized pages.",
+  },
+  {
+    question: "What are credits?",
+    answer: "Credits are consumed each time you run a module. The AEO Report is free. Schema Builder costs 1 credit, Intelligence Hub costs 2 credits per scan, Content Strategy costs 8 to 20 credits depending on volume, and Page Converter costs 1 credit per page.",
+  },
+  {
+    question: "When will Reputation, Agentic, and Commerce layers launch?",
+    answer: "GES launches with full AEO capabilities. The Reputation layer is next on the roadmap, followed by Agentic and Commerce. Each layer builds on the foundation of the previous one. AEO creates the citable content, Reputation extends trust signals, Agentic makes you agent-discoverable, and Commerce closes the loop.",
+  },
+  {
+    question: "Can I cancel anytime?",
+    answer: "Yes. All paid plans are month-to-month with no long-term contracts. Cancel or downgrade from Settings > Billing at any time.",
+  },
+];
 ---
 
 <BaseLayout
-  title="GES - Get Your Brand Cited by AI Search Engines"
-  description="Generative Engine Solutions is the self-serve platform for Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO). Start with a free AEO score across 6 AI engines."
+  title="The #1 AI Revenue Channel Platform for AEO & GEO"
+  description="Generative Engine Solutions is an all-in-one platform for GEO (Generative Engine Optimization). Start with AEO to create citable pages, decision-stage content, and schema that turn AI engines into a customer acquisition channel."
   canonicalPath="/"
 >
   <Fragment slot="schema">
@@ -166,47 +274,86 @@ const modules = [
     <div class="relative max-w-4xl mx-auto text-center">
       <div class="inline-flex items-center gap-2 bg-purple-600/10 border border-purple-500/20 rounded-full px-4 py-1.5 mb-8">
         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true"></span>
-        <span class="text-xs font-medium text-purple-300">Answer Engine Optimization Platform</span>
+        <span class="text-xs font-medium text-purple-300">The 4-layer GEO platform</span>
       </div>
 
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#F8F8F8] leading-tight mb-6">
-        Get your brand cited by<br class="hidden sm:block" />
-        <span class="text-purple-400">AI search engines</span>
+        AI is a new revenue channel.<br class="hidden sm:block" />
+        <span class="text-purple-400">Capture it before everyone else does.</span>
       </h1>
 
       <p class="text-lg sm:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
-        GES is the self-serve platform that starts with AEO (Answer Engine Optimization) and expands to full GEO (Generative Engine Optimization). Five modules. One workflow. Measurable AI visibility.
+        Generative Engine Solutions is an all-in-one platform that helps brands move early across the four layers of GEO, covering AEO, Reputation, Agentic, and Commerce. Start by creating citable pages, decision-stage content, and schema that turn AI engines into a customer acquisition channel.
       </p>
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/report/new" class="btn-primary text-base px-8 py-3.5">
-          Get your free AEO score
+        <a href="https://app.generativeenginesolutions.com/report/new" class="btn-primary text-base px-8 py-3.5">
+          Try the free AEO report
         </a>
-        <a href="#funnel" class="btn-secondary text-base px-8 py-3.5">
-          See how it works
+        <a href="https://app.generativeenginesolutions.com/app/pages/new" class="btn-secondary text-base px-8 py-3.5">
+          Convert pages into AEO pages
         </a>
       </div>
 
-      <!-- Engine logos row -->
-      <div class="mt-14 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-        <p class="text-xs text-white/30 w-full text-center mb-1">Analyzes your visibility across</p>
-        {['ChatGPT', 'Perplexity', 'Claude', 'Google AI', 'Gemini', 'Copilot'].map((engine) => (
-          <span class="text-xs font-medium text-white/40 border border-white/10 px-3 py-1 rounded-full">{engine}</span>
+      <p class="mt-5 text-xs text-white/30">
+        No credit card required &middot; Results in under 60 seconds
+      </p>
+    </div>
+  </section>
+
+  <!-- Four Layers of GEO Section -->
+  <section id="geo-layers" class="px-4 sm:px-6 lg:px-8 py-20 sm:py-28 border-t border-white/5">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl sm:text-4xl font-bold text-[#F8F8F8] mb-4">
+          The Four Layers of GEO
+        </h2>
+        <p class="text-lg text-white/50 max-w-2xl mx-auto">
+          GEO is a strategic maturity model. Each layer builds on the last, from creating content AI engines cite, to enabling agents to transact on your behalf.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-5xl mx-auto">
+        {geoLayers.map((layer) => (
+          <div
+            class={`relative flex flex-col rounded-xl border p-6 ${
+              layer.highlight
+                ? 'border-purple-500/40 bg-purple-950/20'
+                : 'border-white/10 bg-white/[0.02]'
+            }`}
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <span class="flex items-center justify-center w-7 h-7 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-white/60 shrink-0">
+                {layer.number}
+              </span>
+              <span class={`inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-0.5 rounded-full border ${layer.statusBg} ${layer.statusColor}`}>
+                {layer.status}
+              </span>
+            </div>
+            <h3 class="text-base font-bold text-[#F8F8F8] mb-2">{layer.name}</h3>
+            <p class="text-sm text-white/55 leading-relaxed">{layer.description}</p>
+          </div>
         ))}
+      </div>
+
+      <div class="mt-12 text-center">
+        <a href="https://app.generativeenginesolutions.com/report/new" class="btn-primary text-sm px-7 py-3">
+          Start with AEO, try the free report
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- 5-Module Funnel Section -->
-  <section id="funnel" class="px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+  <!-- Five Modules Section -->
+  <section id="modules" class="px-4 sm:px-6 lg:px-8 py-20 sm:py-28 border-t border-white/5">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-14">
-        <span class="section-label">Platform</span>
+        <span class="section-label">LAYER 1 &middot; AEO</span>
         <h2 class="text-3xl sm:text-4xl font-bold text-[#F8F8F8] mb-4">
-          Start with AEO. Scale to full GEO.
+          Five modules to make your brand citable
         </h2>
         <p class="text-lg text-white/50 max-w-2xl mx-auto">
-          Five modules designed to work together. Start free with Module 1 and unlock the full optimization workflow.
+          AEO is operational today. These five modules take you from visibility audit to fully optimized, citable pages, the foundation every GEO layer builds on.
         </p>
       </div>
 
@@ -224,11 +371,37 @@ const modules = [
         <!-- CTA card in last slot -->
         <div class="card flex flex-col items-center justify-center text-center p-8 border-dashed">
           <p class="text-sm text-white/40 mb-4">Ready to start?</p>
-          <a href="/report/new" class="btn-primary text-sm">
+          <a href="https://app.generativeenginesolutions.com/report/new" class="btn-primary text-sm">
             Run your free AEO report
           </a>
           <p class="text-xs text-white/30 mt-3">No credit card required</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="px-4 sm:px-6 lg:px-8 py-20 sm:py-28 border-t border-white/5">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl sm:text-4xl font-bold text-[#F8F8F8] mb-4">
+          Trusted by growth teams
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {testimonials.map((testimonial) => (
+          <div class="rounded-xl border border-white/10 bg-white/[0.02] p-6 flex flex-col">
+            <svg class="w-6 h-6 text-purple-400 mb-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            </svg>
+            <p class="text-sm text-white/70 leading-relaxed flex-1 mb-5">"{testimonial.quote}"</p>
+            <div>
+              <p class="text-sm font-semibold text-[#F8F8F8]">{testimonial.name}</p>
+              <p class="text-xs text-white/40 mt-0.5">{testimonial.title}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -242,12 +415,12 @@ const modules = [
           Simple, transparent pricing
         </h2>
         <p class="text-lg text-white/50 max-w-xl mx-auto">
-          Start free with Module 1. Upgrade when you're ready to run the full optimization workflow.
+          Start with a free AEO report. Upgrade when you're ready to convert pages.
         </p>
       </div>
       <PricingTable />
       <p class="text-center text-xs text-white/30 mt-8">
-        All plans are month-to-month. Cancel anytime. Prices in USD.
+        AEO modules available now. Reputation, Agentic, and Commerce layers coming soon.
       </p>
     </div>
   </section>
@@ -263,95 +436,21 @@ const modules = [
       </div>
 
       <div class="space-y-3">
-        <!-- FAQ 1 -->
-        <details class="card group">
-          <summary class="flex items-center justify-between gap-4 cursor-pointer py-1">
-            <span class="text-sm font-semibold text-[#F8F8F8] group-open:text-purple-300 transition-colors">
-              What is AEO and why does it matter?
-            </span>
-            <svg class="summary-chevron shrink-0 transition-transform duration-200 text-white/30" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </summary>
-          <p class="mt-3 text-sm text-white/60 leading-relaxed">
-            Answer Engine Optimization (AEO) is the practice of optimizing your brand's content so AI systems like ChatGPT, Perplexity, and Google's AI Overview cite you in their answers. As more users skip traditional search results in favor of AI-generated answers, brands invisible to these engines lose traffic and revenue.
-          </p>
-        </details>
-
-        <!-- FAQ 2 -->
-        <details class="card group">
-          <summary class="flex items-center justify-between gap-4 cursor-pointer py-1">
-            <span class="text-sm font-semibold text-[#F8F8F8] group-open:text-purple-300 transition-colors">
-              What is the difference between AEO and GEO?
-            </span>
-            <svg class="summary-chevron shrink-0 transition-transform duration-200 text-white/30" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </summary>
-          <p class="mt-3 text-sm text-white/60 leading-relaxed">
-            Answer Engine Optimization (AEO) focuses on making your content citable by AI search engines like ChatGPT and Perplexity. Generative Engine Optimization (GEO) is broader, covering reputation management, agent-to-agent protocols, API discovery, and commerce readiness. GES launches with AEO and will expand to full GEO capabilities.
-          </p>
-        </details>
-
-        <!-- FAQ 3 -->
-        <details class="card group">
-          <summary class="flex items-center justify-between gap-4 cursor-pointer py-1">
-            <span class="text-sm font-semibold text-[#F8F8F8] group-open:text-purple-300 transition-colors">
-              How does GES differ from traditional SEO?
-            </span>
-            <svg class="summary-chevron shrink-0 transition-transform duration-200 text-white/30" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </summary>
-          <p class="mt-3 text-sm text-white/60 leading-relaxed">
-            Traditional SEO optimizes for keyword rankings. Generative Engine Solutions (GES) optimizes for AI citation, structured data, proof points, and content formats that LLMs are trained to reference and quote.
-          </p>
-        </details>
-
-        <!-- FAQ 4 -->
-        <details class="card group">
-          <summary class="flex items-center justify-between gap-4 cursor-pointer py-1">
-            <span class="text-sm font-semibold text-[#F8F8F8] group-open:text-purple-300 transition-colors">
-              How long does it take to see results?
-            </span>
-            <svg class="summary-chevron shrink-0 transition-transform duration-200 text-white/30" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </summary>
-          <p class="mt-3 text-sm text-white/60 leading-relaxed">
-            Most clients see measurable citation improvements within 4 to 8 weeks of deploying GES-optimized pages.
-          </p>
-        </details>
-
-        <!-- FAQ 5 -->
-        <details class="card group">
-          <summary class="flex items-center justify-between gap-4 cursor-pointer py-1">
-            <span class="text-sm font-semibold text-[#F8F8F8] group-open:text-purple-300 transition-colors">
-              What are credits?
-            </span>
-            <svg class="summary-chevron shrink-0 transition-transform duration-200 text-white/30" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </summary>
-          <p class="mt-3 text-sm text-white/60 leading-relaxed">
-            Credits are consumed each time you run a module. Module 2 (Schema) costs 1 credit, Module 3 (Intelligence) costs 2 credits per scan, Module 4 (Strategy) costs 8 to 20 credits depending on volume, and Module 5 (Page generation) costs 1 credit per page.
-          </p>
-        </details>
-
-        <!-- FAQ 6 -->
-        <details class="card group">
-          <summary class="flex items-center justify-between gap-4 cursor-pointer py-1">
-            <span class="text-sm font-semibold text-[#F8F8F8] group-open:text-purple-300 transition-colors">
-              Can I cancel anytime?
-            </span>
-            <svg class="summary-chevron shrink-0 transition-transform duration-200 text-white/30" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </summary>
-          <p class="mt-3 text-sm text-white/60 leading-relaxed">
-            Yes. All paid plans are month-to-month with no long-term contracts. You can cancel or downgrade from the Settings page at any time.
-          </p>
-        </details>
+        {faqs.map((faq) => (
+          <details class="card group">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer py-1">
+              <span class="text-sm font-semibold text-[#F8F8F8] group-open:text-purple-300 transition-colors">
+                {faq.question}
+              </span>
+              <svg class="summary-chevron shrink-0 transition-transform duration-200 text-white/30" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </summary>
+            <p class="mt-3 text-sm text-white/60 leading-relaxed">
+              {faq.answer}
+            </p>
+          </details>
+        ))}
       </div>
 
       <div class="mt-10 text-center">
@@ -372,8 +471,8 @@ const modules = [
       <p class="text-lg text-white/50 mb-8">
         Run your free AEO Intelligence Report in minutes. No credit card required. See exactly how AI engines see your brand.
       </p>
-      <a href="/report/new" class="btn-primary text-base px-10 py-4">
-        Get your free AEO score
+      <a href="https://app.generativeenginesolutions.com/report/new" class="btn-primary text-base px-10 py-4">
+        Try the free AEO report
       </a>
     </div>
   </section>

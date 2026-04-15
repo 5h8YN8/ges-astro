@@ -13,25 +13,25 @@ const pathname = Astro.url.pathname;
       <!-- Desktop Nav Links -->
       <div class="hidden md:flex items-center gap-6">
         <a
-          href="/#funnel"
+          href="/#geo-layers"
           class="text-sm font-medium text-white/70 hover:text-white transition-colors"
         >
-          How it works
+          GEO Framework
         </a>
         <a
-          href="/pricing"
-          class={`text-sm font-medium transition-colors ${pathname === '/pricing' ? 'text-white' : 'text-white/70 hover:text-white'}`}
+          href="/#modules"
+          class="text-sm font-medium text-white/70 hover:text-white transition-colors"
+        >
+          Modules
+        </a>
+        <a
+          href="/#pricing"
+          class="text-sm font-medium text-white/70 hover:text-white transition-colors"
         >
           Pricing
         </a>
         <a
-          href="/what-is-aeo"
-          class={`text-sm font-medium transition-colors ${pathname === '/what-is-aeo' ? 'text-white' : 'text-white/70 hover:text-white'}`}
-        >
-          What is AEO?
-        </a>
-        <a
-          href="/login"
+          href="https://app.generativeenginesolutions.com/login"
           class="text-sm font-medium text-white/70 hover:text-white transition-colors"
         >
           Login
@@ -40,8 +40,8 @@ const pathname = Astro.url.pathname;
 
       <!-- CTA -->
       <div class="flex items-center gap-3">
-        <a href="/report/new" class="btn-primary text-sm">
-          Get free score
+        <a href="https://app.generativeenginesolutions.com/report/new" class="btn-primary text-sm">
+          Try the free AEO report
         </a>
 
         <!-- Mobile menu button -->
@@ -67,21 +67,21 @@ const pathname = Astro.url.pathname;
       id="mobile-menu"
       class="hidden md:hidden border-t border-white/10 py-4 space-y-1"
     >
-      <a href="/#funnel" class="block px-3 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-md transition-colors">
-        How it works
+      <a href="/#geo-layers" class="block px-3 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-md transition-colors">
+        GEO Framework
       </a>
-      <a href="/pricing" class="block px-3 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-md transition-colors">
+      <a href="/#modules" class="block px-3 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-md transition-colors">
+        Modules
+      </a>
+      <a href="/#pricing" class="block px-3 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-md transition-colors">
         Pricing
       </a>
-      <a href="/what-is-aeo" class="block px-3 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-md transition-colors">
-        What is AEO?
-      </a>
-      <a href="/login" class="block px-3 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-md transition-colors">
+      <a href="https://app.generativeenginesolutions.com/login" class="block px-3 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-md transition-colors">
         Login
       </a>
       <div class="pt-2 px-3">
-        <a href="/report/new" class="btn-primary w-full text-sm">
-          Get free score
+        <a href="https://app.generativeenginesolutions.com/report/new" class="btn-primary w-full text-sm">
+          Try the free AEO report
         </a>
       </div>
     </div>
