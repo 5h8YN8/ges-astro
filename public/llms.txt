@@ -1,0 +1,26 @@
+# Generative Engine Solutions (GES)
+
+> Self-serve platform for Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO)
+
+GES helps businesses improve their visibility and citation rate in AI-powered search engines and large language model responses.
+
+## Core Pages
+
+- [Homepage](https://app.generativeenginesolutions.com/): Overview of the GES platform and its 5 modules
+- [What is AEO?](https://app.generativeenginesolutions.com/what-is-aeo): Comprehensive guide to Answer Engine Optimization
+- [Pricing](https://app.generativeenginesolutions.com/pricing): Three tiers, Free ($0, 5 credits), Growth ($299/mo, 50 credits), Scale ($799/mo, 200 credits)
+
+## Modules
+
+1. AEO Intelligence Report: Diagnoses AI visibility across ChatGPT, Perplexity, Claude, Google AI Overview, Gemini, and Copilot
+2. Org Schema Builder: Generates JSON-LD structured markup for LLM parsing
+3. Company Intelligence Gatherer: Builds proof-point libraries that AI engines cite
+4. ICP Content Strategy: Maps content pages to buyer questions that AI systems answer
+5. Page Converter: Transforms existing pages into LLM-optimized content assets
+
+## Key Facts
+
+- Founded: 2026
+- Category: SaaS, AI, SEO/AEO/GEO
+- Website: https://app.generativeenginesolutions.com
+- Social: https://x.com/generativeengin

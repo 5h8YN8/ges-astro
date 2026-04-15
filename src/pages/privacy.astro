@@ -1,0 +1,235 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const privacySchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Privacy Policy - Generative Engine Solutions",
+  "url": "https://app.generativeenginesolutions.com/privacy",
+  "description": "Privacy Policy for Generative Engine Solutions (GES). Covers data collection, use, sharing, retention, security, and your rights.",
+  "dateModified": "2026-04-14"
+};
+---
+
+<BaseLayout
+  title="Privacy Policy - Generative Engine Solutions"
+  description="Privacy Policy for GES (Generative Engine Solutions). Learn how we collect, use, share, and protect your data. Covers Supabase, Stripe, PostHog, and other third-party integrations."
+  canonicalPath="/privacy"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(privacySchema)} />
+  </Fragment>
+
+  <div class="px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <div class="max-w-3xl mx-auto">
+
+      <!-- Header -->
+      <header class="mb-12">
+        <span class="section-label">Legal</span>
+        <h1 class="text-4xl font-bold text-[#F8F8F8] mb-3 mt-2">Privacy Policy</h1>
+        <p class="text-sm text-white/40">Last updated: April 14, 2026</p>
+        <p class="mt-4 text-white/60 text-sm leading-relaxed">
+          This Privacy Policy describes how Generative Engine Solutions ("GES," "we," "us," or "our") collects, uses, shares, and protects information about you when you use our platform at <a href="https://app.generativeenginesolutions.com" class="text-purple-400 hover:text-purple-300">app.generativeenginesolutions.com</a>. We are committed to handling your data responsibly and transparently.
+        </p>
+      </header>
+
+      <div class="space-y-10 prose-dark">
+
+        <!-- Section 1 -->
+        <section id="introduction">
+          <h2 class="text-xl font-bold text-[#F8F8F8] mb-3">1. Introduction</h2>
+          <p>
+            Your privacy is important to us. This policy explains what data we collect, why we collect it, how we use it, and the choices you have. By using GES, you agree to the collection and use of information as described in this policy.
+          </p>
+          <p>
+            This policy applies to the GES web platform and any related services, communications, or support interactions. It does not apply to third-party websites or services linked from GES.
+          </p>
+        </section>
+
+        <!-- Section 2 -->
+        <section id="information-collected">
+          <h2 class="text-xl font-bold text-[#F8F8F8] mb-3">2. Information We Collect</h2>
+
+          <h3 class="text-base font-semibold text-white/80 mt-5 mb-2">Account information</h3>
+          <p>
+            When you register for a GES account, we collect your email address and, if provided, your name and company name. This information is used to create and manage your account.
+          </p>
+
+          <h3 class="text-base font-semibold text-white/80 mt-5 mb-2">Content you provide</h3>
+          <p>
+            When you use GES modules, you provide inputs such as domain names, brand names, company descriptions, product details, and existing web pages. We process this content to generate your requested outputs. We do not use your content to train AI models or share it with other customers.
+          </p>
+
+          <h3 class="text-base font-semibold text-white/80 mt-5 mb-2">Automatically collected data</h3>
+          <p>
+            We collect usage data automatically when you interact with the GES platform. This includes:
+          </p>
+          <ul class="mt-2 space-y-1.5">
+            <li>Pages visited, features used, and time spent on the platform.</li>
+            <li>Module runs, credit consumption, and output generation events.</li>
+            <li>Browser type, operating system, IP address, and general geographic location.</li>
+            <li>Referring URLs and click paths.</li>
+          </ul>
+          <p>
+            This data is collected via PostHog, our product analytics tool. We use it to understand how the platform is used, diagnose errors, and improve product features.
+          </p>
+        </section>
+
+        <!-- Section 3 -->
+        <section id="how-we-use">
+          <h2 class="text-xl font-bold text-[#F8F8F8] mb-3">3. How We Use Your Information</h2>
+          <p>We use the information we collect to:</p>
+          <ul class="mt-3 space-y-2">
+            <li>Provide, maintain, and improve the GES platform and its modules.</li>
+            <li>Process your subscription and credit transactions via Stripe.</li>
+            <li>Authenticate your identity and secure your account.</li>
+            <li>Send transactional emails (account creation, billing, password reset, usage alerts).</li>
+            <li>Respond to support requests and troubleshoot issues.</li>
+            <li>Analyze product usage to prioritize feature development.</li>
+            <li>Detect and prevent fraud, abuse, and violations of our Terms of Service.</li>
+            <li>Comply with legal obligations.</li>
+          </ul>
+          <p>
+            We do not sell your personal information. We do not use your personal data for advertising or share it with advertising networks.
+          </p>
+        </section>
+
+        <!-- Section 4 -->
+        <section id="sharing">
+          <h2 class="text-xl font-bold text-[#F8F8F8] mb-3">4. Data Sharing and Third-Party Services</h2>
+          <p>
+            GES shares data with third-party service providers only as necessary to deliver the platform. The following providers may process your data:
+          </p>
+          <div class="space-y-4 mt-4">
+            <div class="card">
+              <h3 class="text-sm font-semibold text-white/80 mb-1">Supabase</h3>
+              <p class="text-sm text-white/60">Hosts our database and handles user authentication. Your account data, session data, and module outputs are stored in Supabase-managed infrastructure. Data is encrypted at rest and in transit.</p>
+            </div>
+            <div class="card">
+              <h3 class="text-sm font-semibold text-white/80 mb-1">Stripe</h3>
+              <p class="text-sm text-white/60">Processes payments for paid subscriptions. GES does not store your full payment card details. Stripe collects and processes payment data according to its own privacy policy and PCI-DSS compliance requirements.</p>
+            </div>
+            <div class="card">
+              <h3 class="text-sm font-semibold text-white/80 mb-1">PostHog</h3>
+              <p class="text-sm text-white/60">Collects product analytics events including page views, feature usage, and user interactions. PostHog is self-hosted or used under a data processing agreement that limits secondary use of your data.</p>
+            </div>
+            <div class="card">
+              <h3 class="text-sm font-semibold text-white/80 mb-1">n8n</h3>
+              <p class="text-sm text-white/60">Orchestrates the workflow automation that runs GES modules. Your inputs are passed through n8n workflows to generate outputs. n8n processes data on GES-controlled infrastructure.</p>
+            </div>
+            <div class="card">
+              <h3 class="text-sm font-semibold text-white/80 mb-1">Anthropic (Claude)</h3>
+              <p class="text-sm text-white/60">Provides AI content generation for certain GES modules. Your inputs are sent to Anthropic's API to generate structured outputs. Anthropic's data handling is governed by Anthropic's API terms and privacy policy.</p>
+            </div>
+            <div class="card">
+              <h3 class="text-sm font-semibold text-white/80 mb-1">Google (Gemini)</h3>
+              <p class="text-sm text-white/60">Provides AI content generation for certain GES modules. Your inputs may be sent to Google's Gemini API. Google's data handling is governed by Google's API terms and privacy policy.</p>
+            </div>
+            <div class="card">
+              <h3 class="text-sm font-semibold text-white/80 mb-1">DataforSEO</h3>
+              <p class="text-sm text-white/60">Provides data retrieval for AEO scanning, including queries sent to AI engines and search data. Domain names and query strings are sent to DataforSEO's API to retrieve citation data.</p>
+            </div>
+          </div>
+          <p class="mt-4">
+            GES may also disclose your information if required by law, court order, or governmental authority, or to protect the safety, rights, or property of GES, its users, or the public.
+          </p>
+        </section>
+
+        <!-- Section 5 -->
+        <section id="retention">
+          <h2 class="text-xl font-bold text-[#F8F8F8] mb-3">5. Data Retention</h2>
+          <p>
+            We retain your account information and module outputs for as long as your account is active. If you delete your account, we will delete your personal data within 30 days, except where we are required to retain it for legal or compliance purposes (such as billing records, which are retained for seven years).
+          </p>
+          <p>
+            Analytics event data is retained for up to 24 months and then aggregated or deleted. You may request earlier deletion of your personal data by contacting us at <a href="mailto:privacy@generativeenginesolutions.com" class="text-purple-400 hover:text-purple-300">privacy@generativeenginesolutions.com</a>.
+          </p>
+        </section>
+
+        <!-- Section 6 -->
+        <section id="security">
+          <h2 class="text-xl font-bold text-[#F8F8F8] mb-3">6. Data Security</h2>
+          <p>
+            GES takes reasonable technical and organizational measures to protect your data against unauthorized access, alteration, disclosure, or destruction. Our security practices include:
+          </p>
+          <ul class="mt-3 space-y-2">
+            <li>All data transmitted between your browser and GES servers is encrypted using TLS 1.2 or higher.</li>
+            <li>Data stored in Supabase is encrypted at rest using AES-256 encryption.</li>
+            <li>Row-level security (RLS) policies restrict database access so each user can only access their own data.</li>
+            <li>Access to production systems is restricted to authorized GES team members with multi-factor authentication.</li>
+          </ul>
+          <p>
+            No method of transmission or storage is 100% secure. If you discover a security vulnerability, please report it responsibly to <a href="mailto:security@generativeenginesolutions.com" class="text-purple-400 hover:text-purple-300">security@generativeenginesolutions.com</a>.
+          </p>
+        </section>
+
+        <!-- Section 7 -->
+        <section id="your-rights">
+          <h2 class="text-xl font-bold text-[#F8F8F8] mb-3">7. Your Rights</h2>
+          <p>
+            Depending on your location, you may have the following rights regarding your personal data:
+          </p>
+          <ul class="mt-3 space-y-2">
+            <li><strong class="text-white/90">Access:</strong> Request a copy of the personal data GES holds about you.</li>
+            <li><strong class="text-white/90">Correction:</strong> Request correction of inaccurate or incomplete personal data.</li>
+            <li><strong class="text-white/90">Deletion:</strong> Request deletion of your personal data (subject to legal retention requirements).</li>
+            <li><strong class="text-white/90">Portability:</strong> Request your personal data in a structured, machine-readable format.</li>
+            <li><strong class="text-white/90">Objection:</strong> Object to processing of your personal data for certain purposes, including direct marketing.</li>
+            <li><strong class="text-white/90">Restriction:</strong> Request that GES restrict processing of your data in certain circumstances.</li>
+          </ul>
+          <p>
+            To exercise any of these rights, email <a href="mailto:privacy@generativeenginesolutions.com" class="text-purple-400 hover:text-purple-300">privacy@generativeenginesolutions.com</a>. We will respond within 30 days. We may need to verify your identity before processing your request.
+          </p>
+        </section>
+
+        <!-- Section 8 -->
+        <section id="cookies">
+          <h2 class="text-xl font-bold text-[#F8F8F8] mb-3">8. Cookies and Tracking</h2>
+          <p>
+            GES uses the following categories of cookies and local storage:
+          </p>
+          <ul class="mt-3 space-y-2">
+            <li><strong class="text-white/90">Essential cookies:</strong> Required for authentication, session management, and core platform functionality. These cannot be disabled.</li>
+            <li><strong class="text-white/90">Analytics cookies:</strong> Set by PostHog to track product usage events. These help us improve the platform. You can opt out of analytics tracking via the GES privacy settings.</li>
+          </ul>
+          <p>
+            GES does not use advertising cookies or third-party tracking pixels from advertising networks. You can control cookies via your browser settings, but disabling essential cookies will prevent you from using the platform.
+          </p>
+        </section>
+
+        <!-- Section 9 -->
+        <section id="children">
+          <h2 class="text-xl font-bold text-[#F8F8F8] mb-3">9. Children's Privacy</h2>
+          <p>
+            GES is not intended for use by individuals under the age of 16. We do not knowingly collect personal data from anyone under 16. If we become aware that we have collected personal data from a child under 16, we will delete that data promptly. If you believe a child has provided us with personal data, please contact <a href="mailto:privacy@generativeenginesolutions.com" class="text-purple-400 hover:text-purple-300">privacy@generativeenginesolutions.com</a>.
+          </p>
+        </section>
+
+        <!-- Section 10 -->
+        <section id="changes">
+          <h2 class="text-xl font-bold text-[#F8F8F8] mb-3">10. Changes to This Policy</h2>
+          <p>
+            We may update this Privacy Policy from time to time to reflect changes in our practices, technology, or legal requirements. When we make material changes, we will notify you via email and/or a notice on the platform before the changes take effect.
+          </p>
+          <p>
+            The most current version of this policy is always available at <a href="/privacy" class="text-purple-400 hover:text-purple-300">app.generativeenginesolutions.com/privacy</a>. The date at the top of this page indicates when the policy was last updated.
+          </p>
+        </section>
+
+        <!-- Section 11 -->
+        <section id="contact">
+          <h2 class="text-xl font-bold text-[#F8F8F8] mb-3">11. Contact</h2>
+          <p>
+            If you have questions, concerns, or requests related to this Privacy Policy or our data practices, please contact our privacy team:
+          </p>
+          <div class="mt-3 card text-sm">
+            <p class="text-white/80">Generative Engine Solutions</p>
+            <p class="text-white/60 mt-1">Email: <a href="mailto:privacy@generativeenginesolutions.com" class="text-purple-400 hover:text-purple-300">privacy@generativeenginesolutions.com</a></p>
+            <p class="text-white/60 mt-0.5">Website: <a href="https://app.generativeenginesolutions.com" class="text-purple-400 hover:text-purple-300">app.generativeenginesolutions.com</a></p>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</BaseLayout>

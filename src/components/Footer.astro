@@ -1,0 +1,67 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-white/10 bg-[#0F0F0F] mt-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+      <!-- Brand column -->
+      <div class="md:col-span-2">
+        <a href="/" class="flex items-center gap-2.5 mb-4" aria-label="GES Home">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="32" height="32" rx="8" fill="#7C3AED"/>
+            <path d="M8 16C8 11.582 11.582 8 16 8C18.387 8 20.541 8.972 22.1 10.55L19.778 12.872C18.822 11.888 17.482 11.28 16 11.28C13.386 11.28 11.28 13.386 11.28 16C11.28 18.614 13.386 20.72 16 20.72C18.26 20.72 20.14 19.142 20.633 17.04H16V13.76H24.16C24.24 14.244 24.28 14.746 24.28 15.26V16C24.28 20.584 20.584 24.28 16 24.28C11.416 24.28 8 20.418 8 16Z" fill="white"/>
+          </svg>
+          <span class="text-base font-bold text-[#F8F8F8]">GES</span>
+        </a>
+        <p class="text-sm text-white/50 max-w-xs leading-relaxed">
+          From Answer Engine Optimization to full Generative Engine Optimization.
+        </p>
+        <!-- Social -->
+        <a
+          href="https://x.com/generativeengin"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 mt-4 text-sm text-white/50 hover:text-white transition-colors"
+          aria-label="GES on X (formerly Twitter)"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+          @generativeengin
+        </a>
+      </div>
+
+      <!-- Product links -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">Product</h3>
+        <ul class="space-y-2.5">
+          <li><a href="/" class="text-sm text-white/60 hover:text-white transition-colors">Home</a></li>
+          <li><a href="/report/new" class="text-sm text-white/60 hover:text-white transition-colors">Free Report</a></li>
+          <li><a href="/pricing" class="text-sm text-white/60 hover:text-white transition-colors">Pricing</a></li>
+          <li><a href="/what-is-aeo" class="text-sm text-white/60 hover:text-white transition-colors">What is AEO?</a></li>
+          <li><a href="/login" class="text-sm text-white/60 hover:text-white transition-colors">Login</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal links -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">Legal</h3>
+        <ul class="space-y-2.5">
+          <li><a href="/privacy" class="text-sm text-white/60 hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="/terms" class="text-sm text-white/60 hover:text-white transition-colors">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-xs text-white/40">
+        &copy; {year} GES. All rights reserved.
+      </p>
+      <p class="text-xs text-white/30">
+        Generative Engine Solutions
+      </p>
+    </div>
+  </div>
+</footer>

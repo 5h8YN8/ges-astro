@@ -1,0 +1,197 @@
+---
+interface Props {
+  showModuleTable?: boolean;
+  showCreditBreakdown?: boolean;
+}
+
+const { showModuleTable = false, showCreditBreakdown = false } = Astro.props;
+
+const plans = [
+  {
+    name: 'Free',
+    price: '$0',
+    period: 'forever',
+    description: 'Get started with your first AEO analysis, no credit card required.',
+    credits: '5 credits',
+    cta: 'Start free',
+    ctaHref: '/signup',
+    highlight: false,
+    features: [
+      'Module 1: AEO Intelligence Report',
+      '5 one-time credits',
+      'Visibility scan across 6 AI engines',
+      'PDF export of results',
+      'Email support',
+    ],
+  },
+  {
+    name: 'Growth',
+    price: '$299',
+    period: 'per month',
+    description: 'For teams ready to build a systematic AEO and content workflow.',
+    credits: '50 credits / mo',
+    cta: 'Start Growth',
+    ctaHref: '/signup?plan=growth',
+    highlight: true,
+    features: [
+      'All 5 GES Modules',
+      '50 credits per month',
+      'Unlimited AEO scans',
+      'Org Schema Builder',
+      'Company Intelligence Gatherer',
+      'ICP Content Strategy (up to 30 pages)',
+      'Page Converter',
+      'Priority email support',
+    ],
+  },
+  {
+    name: 'Scale',
+    price: '$799',
+    period: 'per month',
+    description: 'For agencies and enterprises running GEO at scale across multiple brands.',
+    credits: '200 credits / mo',
+    cta: 'Start Scale',
+    ctaHref: '/signup?plan=scale',
+    highlight: false,
+    features: [
+      'All 5 GES Modules',
+      '200 credits per month',
+      'Custom onboarding session',
+      'ICP Content Strategy (up to 100 pages)',
+      'Multi-brand support',
+      'Slack support channel',
+      'Dedicated account manager',
+    ],
+  },
+];
+
+const modules = [
+  { name: 'Module 1: AEO Intelligence Report', free: true, growth: true, scale: true },
+  { name: 'Module 2: Org Schema Builder', free: false, growth: true, scale: true },
+  { name: 'Module 3: Company Intelligence', free: false, growth: true, scale: true },
+  { name: 'Module 4: ICP Content Strategy', free: false, growth: true, scale: true },
+  { name: 'Module 5: Page Converter', free: false, growth: true, scale: true },
+];
+
+const creditCosts = [
+  { action: 'Module 1: AEO Intelligence Report', cost: '2 credits per scan' },
+  { action: 'Module 2: Org Schema Builder', cost: '1 credit' },
+  { action: 'Module 3: Company Intelligence scan', cost: '2 credits per scan' },
+  { action: 'Module 4: ICP Content Strategy (small)', cost: '8 credits (up to 30 pages)' },
+  { action: 'Module 4: ICP Content Strategy (large)', cost: '20 credits (up to 100 pages)' },
+  { action: 'Module 5: Page Converter', cost: '1 credit per page' },
+];
+---
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+  {plans.map((plan) => (
+    <div
+      class={`relative flex flex-col rounded-xl border p-6 ${
+        plan.highlight
+          ? 'border-purple-500/60 bg-purple-950/20 shadow-lg shadow-purple-500/10'
+          : 'border-white/10 bg-white/[0.03]'
+      }`}
+    >
+      {plan.highlight && (
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+          <span class="bg-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
+            Most popular
+          </span>
+        </div>
+      )}
+
+      <div class="mb-6">
+        <h3 class="text-lg font-bold text-[#F8F8F8] mb-1">{plan.name}</h3>
+        <div class="flex items-baseline gap-1.5 mb-2">
+          <span class="text-3xl font-bold text-[#F8F8F8]">{plan.price}</span>
+          <span class="text-sm text-white/50">{plan.period}</span>
+        </div>
+        <p class="text-sm text-white/60 leading-relaxed mb-3">{plan.description}</p>
+        <div class="inline-flex items-center gap-1.5 bg-white/5 rounded-full px-3 py-1">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="7" cy="7" r="6" stroke="#7C3AED" stroke-width="1.5"/>
+            <path d="M4 7C4 5.343 5.343 4 7 4C8.657 4 10 5.343 10 7C10 8.657 8.657 10 7 10C5.343 10 4 8.657 4 7Z" fill="#7C3AED"/>
+          </svg>
+          <span class="text-xs font-medium text-purple-400">{plan.credits}</span>
+        </div>
+      </div>
+
+      <ul class="space-y-2.5 mb-8 flex-1">
+        {plan.features.map((feature) => (
+          <li class="flex items-start gap-2.5 text-sm text-white/70">
+            <svg class="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M3 8L6.5 11.5L13 4.5" stroke="#10B981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            {feature}
+          </li>
+        ))}
+      </ul>
+
+      <a
+        href={plan.ctaHref}
+        class={`w-full text-center py-2.5 rounded-lg text-sm font-semibold transition-colors ${
+          plan.highlight
+            ? 'bg-purple-600 hover:bg-purple-700 text-white'
+            : 'border border-white/20 hover:border-white/40 hover:bg-white/5 text-[#F8F8F8]'
+        }`}
+      >
+        {plan.cta}
+      </a>
+    </div>
+  ))}
+</div>
+
+{showModuleTable && (
+  <div class="mt-14 max-w-5xl mx-auto overflow-x-auto">
+    <h3 class="text-lg font-bold text-[#F8F8F8] mb-4">Module availability by plan</h3>
+    <table class="w-full text-sm border-collapse">
+      <thead>
+        <tr class="border-b border-white/10">
+          <th class="text-left py-3 pr-4 text-white/50 font-medium">Module</th>
+          <th class="text-center py-3 px-4 text-white/50 font-medium">Free</th>
+          <th class="text-center py-3 px-4 text-purple-400 font-semibold">Growth</th>
+          <th class="text-center py-3 px-4 text-white/50 font-medium">Scale</th>
+        </tr>
+      </thead>
+      <tbody>
+        {modules.map((mod) => (
+          <tr class="border-b border-white/5">
+            <td class="py-3 pr-4 text-white/80">{mod.name}</td>
+            <td class="py-3 px-4 text-center">
+              {mod.free
+                ? <span class="text-emerald-400" aria-label="Included">&#10003;</span>
+                : <span class="text-white/20" aria-label="Not included">&#10005;</span>
+              }
+            </td>
+            <td class="py-3 px-4 text-center">
+              {mod.growth
+                ? <span class="text-emerald-400" aria-label="Included">&#10003;</span>
+                : <span class="text-white/20" aria-label="Not included">&#10005;</span>
+              }
+            </td>
+            <td class="py-3 px-4 text-center">
+              {mod.scale
+                ? <span class="text-emerald-400" aria-label="Included">&#10003;</span>
+                : <span class="text-white/20" aria-label="Not included">&#10005;</span>
+              }
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+)}
+
+{showCreditBreakdown && (
+  <div class="mt-12 max-w-5xl mx-auto">
+    <h3 class="text-lg font-bold text-[#F8F8F8] mb-4">Credit cost per module</h3>
+    <div class="border border-white/10 rounded-xl overflow-hidden">
+      {creditCosts.map((item, i) => (
+        <div class={`flex items-center justify-between px-5 py-3.5 ${i !== creditCosts.length - 1 ? 'border-b border-white/5' : ''}`}>
+          <span class="text-sm text-white/70">{item.action}</span>
+          <span class="text-sm font-medium text-purple-400 whitespace-nowrap ml-4">{item.cost}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+)}

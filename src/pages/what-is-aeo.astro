@@ -1,0 +1,470 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What is Answer Engine Optimization (AEO)?",
+  "description": "A comprehensive guide to Answer Engine Optimization (AEO): what it is, why it matters in 2026, how it differs from SEO, and how to get started.",
+  "url": "https://app.generativeenginesolutions.com/what-is-aeo",
+  "datePublished": "2026-04-15",
+  "dateModified": "2026-04-15",
+  "author": {
+    "@type": "Organization",
+    "name": "Generative Engine Solutions",
+    "url": "https://app.generativeenginesolutions.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Generative Engine Solutions",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://app.generativeenginesolutions.com/images/logo-dark.png"
+    }
+  },
+  "image": "https://app.generativeenginesolutions.com/og-image.png",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://app.generativeenginesolutions.com/what-is-aeo"
+  },
+  "keywords": ["AEO", "Answer Engine Optimization", "GEO", "Generative Engine Optimization", "AI SEO", "LLM optimization", "ChatGPT SEO", "Perplexity SEO"]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Answer Engine Optimization?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Answer Engine Optimization (AEO) is the discipline of structuring your brand's content, data, and digital presence so that AI-powered answer engines and large language models cite your brand in their generated responses."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which AI engines does AEO target?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The six primary AI engines targeted by AEO practitioners in 2026 are: ChatGPT (OpenAI), Perplexity AI, Claude (Anthropic), Google AI Overview, Google Gemini, and Microsoft Copilot."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is AEO different from SEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SEO optimizes for ranking positions in a list of blue links. AEO optimizes for citation in a synthesized, conversational answer. AEO requires structured data, factual density, and semantic clarity rather than keyword density and backlink volume."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between AEO and GEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AEO is a subset of the broader GEO (Generative Engine Optimization) category. GEO encompasses AEO plus reputation signals, agent-to-agent discoverability, API readiness, and commerce layer optimization for AI-native transactions."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="What is Answer Engine Optimization (AEO)? - GES"
+  description="A comprehensive guide to AEO: what Answer Engine Optimization is, why it matters in 2026, how it differs from traditional SEO, and how to get your brand cited by ChatGPT, Perplexity, Claude, and more."
+  canonicalPath="/what-is-aeo"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <article class="px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <div class="max-w-3xl mx-auto">
+
+      <!-- Article header -->
+      <header class="mb-12">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="section-label">Guide</span>
+          <span class="text-xs text-white/30">Updated April 15, 2026</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl font-bold text-[#F8F8F8] leading-tight mb-6">
+          What is Answer Engine Optimization (AEO)?
+        </h1>
+        <p class="text-xl text-white/60 leading-relaxed">
+          Answer Engine Optimization is the practice of structuring your brand's content and data so AI systems like ChatGPT, Perplexity, and Google's AI Overview cite you in their generated answers. As users increasingly ask questions directly to AI instead of browsing search result lists, AEO has become a foundational discipline for any brand that depends on digital discoverability.
+        </p>
+        <div class="flex items-center gap-3 mt-6 pt-6 border-t border-white/10">
+          <div class="flex items-center justify-center w-8 h-8 rounded-full bg-purple-600/20 border border-purple-500/30">
+            <svg width="16" height="16" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="32" height="32" rx="8" fill="#7C3AED"/>
+              <path d="M8 16C8 11.582 11.582 8 16 8C18.387 8 20.541 8.972 22.1 10.55L19.778 12.872C18.822 11.888 17.482 11.28 16 11.28C13.386 11.28 11.28 13.386 11.28 16C11.28 18.614 13.386 20.72 16 20.72C18.26 20.72 20.14 19.142 20.633 17.04H16V13.76H24.16C24.24 14.244 24.28 14.746 24.28 15.26V16C24.28 20.584 20.584 24.28 16 24.28C11.416 24.28 8 20.418 8 16Z" fill="white"/>
+            </svg>
+          </div>
+          <span class="text-sm text-white/50">By <span class="text-white/70">Generative Engine Solutions</span></span>
+        </div>
+      </header>
+
+      <!-- Table of Contents -->
+      <nav class="card mb-12" aria-label="Table of contents">
+        <h2 class="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">Contents</h2>
+        <ol class="space-y-2 text-sm">
+          <li><a href="#what-is-aeo" class="text-purple-400 hover:text-purple-300 transition-colors">1. What is Answer Engine Optimization?</a></li>
+          <li><a href="#why-it-matters" class="text-purple-400 hover:text-purple-300 transition-colors">2. Why AEO matters in 2026</a></li>
+          <li><a href="#aeo-vs-seo" class="text-purple-400 hover:text-purple-300 transition-colors">3. AEO vs. traditional SEO</a></li>
+          <li><a href="#six-engines" class="text-purple-400 hover:text-purple-300 transition-colors">4. The 6 AI engines that matter</a></li>
+          <li><a href="#how-ges-helps" class="text-purple-400 hover:text-purple-300 transition-colors">5. How GES helps with AEO</a></li>
+          <li><a href="#aeo-and-geo" class="text-purple-400 hover:text-purple-300 transition-colors">6. AEO within the broader GEO landscape</a></li>
+          <li><a href="#getting-started" class="text-purple-400 hover:text-purple-300 transition-colors">7. How to get started with AEO</a></li>
+        </ol>
+      </nav>
+
+      <!-- Section 1 -->
+      <section id="what-is-aeo" class="mb-14 prose-dark">
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#F8F8F8] mb-5">1. What is Answer Engine Optimization?</h2>
+
+        <p>
+          Answer Engine Optimization (AEO) is the discipline of structuring your brand's content, structured data, and digital presence so that AI-powered answer engines and large language models (LLMs) cite your brand when generating responses to relevant queries.
+        </p>
+
+        <p>
+          The term distinguishes a new class of search behavior from traditional query-and-results search. When a user asks ChatGPT "What's the best project management tool for remote teams?" or asks Perplexity "Who are the leading vendors in AI search optimization?", those systems synthesize an answer by drawing on training data and, in some cases, live web retrieval. Whether or not your brand appears in that answer depends on how visible, structured, and credible your content appears to those systems.
+        </p>
+
+        <p>
+          AEO addresses this directly. It combines technical practices (structured data markup, semantic HTML, JSON-LD schema), content practices (factual density, clear entity definition, citable claims), and reputation signals (third-party mentions, consistent brand information across the web) to increase the probability that an AI engine surfaces your brand in a relevant answer.
+        </p>
+
+        <h3 class="text-lg font-bold text-[#F8F8F8] mt-7 mb-3">Core components of AEO</h3>
+        <ul class="space-y-2 list-disc list-inside text-white/70 text-sm">
+          <li><strong class="text-white/90">Structured data and schema markup:</strong> JSON-LD annotations that help machines understand what your organization is, what it does, and what claims it makes.</li>
+          <li><strong class="text-white/90">Entity clarity:</strong> Clearly defining your brand, products, and key personnel in a machine-readable way so AI systems can identify and reference them precisely.</li>
+          <li><strong class="text-white/90">Factual content density:</strong> Pages structured around verifiable facts, statistics, and attributable claims rather than keyword-padded prose.</li>
+          <li><strong class="text-white/90">AI visibility scanning:</strong> Systematically measuring how often and how accurately AI engines mention your brand across a defined set of queries.</li>
+          <li><strong class="text-white/90">Content alignment:</strong> Mapping your content library to the specific questions AI systems are being asked about your industry and category.</li>
+        </ul>
+      </section>
+
+      <!-- Section 2 -->
+      <section id="why-it-matters" class="mb-14 prose-dark">
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#F8F8F8] mb-5">2. Why AEO matters in 2026</h2>
+
+        <p>
+          The search landscape has undergone a structural shift. In 2023 and 2024, AI-generated overviews began appearing in Google search results for a broad set of informational queries. By 2025, conversational AI tools like ChatGPT and Perplexity had established significant daily active user bases, with many users using them as primary research and discovery tools rather than Google.
+        </p>
+
+        <p>
+          This shift matters because AI-generated answers have fundamentally different citation mechanics than traditional search. In a traditional search result page (SERP), every result is a link. Users see ten or more options and choose. In an AI-generated answer, the model synthesizes a single response. It may cite two or three sources, or none at all. The brands that are not cited simply do not exist in that moment for that user.
+        </p>
+
+        <h3 class="text-lg font-bold text-[#F8F8F8] mt-7 mb-3">The zero-sum nature of AI citation</h3>
+        <p>
+          When a potential customer asks an AI assistant which vendors offer a specific type of software, the assistant typically names three to five options. If your brand is not in that set, you receive no referral, no awareness, and no opportunity to compete for that customer. Unlike a page-two search ranking, there is no equivalent of "page two" in an AI answer. You are either cited or absent.
+        </p>
+
+        <p>
+          This makes AEO a defensive priority as much as an offensive one. Brands that do not invest in AEO are not simply missing a growth opportunity; they are actively losing ground as user behavior shifts toward AI-first research.
+        </p>
+
+        <h3 class="text-lg font-bold text-[#F8F8F8] mt-7 mb-3">The opportunity gap</h3>
+        <p>
+          As of 2026, most businesses have not yet systematically approached AEO. Traditional SEO agencies are adapting, but the tooling, frameworks, and measurement approaches for AEO are still maturing. This creates a meaningful window for early movers to establish strong citation rates before competition intensifies. Brands that build structured content, well-annotated entity data, and strong proof-point libraries now are compounding that advantage.
+        </p>
+      </section>
+
+      <!-- Section 3 -->
+      <section id="aeo-vs-seo" class="mb-14 prose-dark">
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#F8F8F8] mb-5">3. AEO vs. traditional SEO</h2>
+
+        <p>
+          Traditional Search Engine Optimization (SEO) optimizes for ranking positions in a list of blue links on a results page. It focuses on keyword targeting, backlink acquisition, technical crawlability, and page authority signals to rank above competitors for a given query.
+        </p>
+
+        <p>
+          AEO operates on a different logic. AI answer engines do not return a ranked list of links. They synthesize a response. The mechanics of how a model decides what to include in that response depend on training data, retrieval-augmented search indexes, semantic relevance scoring, and the clarity and credibility of available sources.
+        </p>
+
+        <div class="card my-6">
+          <h3 class="text-sm font-semibold text-white/50 uppercase tracking-widest mb-4">SEO vs. AEO: Key differences</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="border-b border-white/10">
+                  <th class="text-left py-2 pr-4 text-white/40 font-medium">Dimension</th>
+                  <th class="text-left py-2 pr-4 text-white/40 font-medium">Traditional SEO</th>
+                  <th class="text-left py-2 text-purple-400 font-medium">AEO</th>
+                </tr>
+              </thead>
+              <tbody class="text-white/65">
+                <tr class="border-b border-white/5">
+                  <td class="py-2.5 pr-4 font-medium text-white/80">Optimization target</td>
+                  <td class="py-2.5 pr-4">Keyword ranking position</td>
+                  <td class="py-2.5">AI citation in generated answer</td>
+                </tr>
+                <tr class="border-b border-white/5">
+                  <td class="py-2.5 pr-4 font-medium text-white/80">Primary signal</td>
+                  <td class="py-2.5 pr-4">Backlinks and authority</td>
+                  <td class="py-2.5">Structured data and factual clarity</td>
+                </tr>
+                <tr class="border-b border-white/5">
+                  <td class="py-2.5 pr-4 font-medium text-white/80">Content format</td>
+                  <td class="py-2.5 pr-4">Long-form, keyword-rich pages</td>
+                  <td class="py-2.5">Semantically structured, citable claims</td>
+                </tr>
+                <tr class="border-b border-white/5">
+                  <td class="py-2.5 pr-4 font-medium text-white/80">Measurement</td>
+                  <td class="py-2.5 pr-4">Rank tracking, organic traffic</td>
+                  <td class="py-2.5">Citation rate, mention accuracy</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-4 font-medium text-white/80">Competition</td>
+                  <td class="py-2.5 pr-4">10+ results on a SERP</td>
+                  <td class="py-2.5">2 to 5 citations in an answer</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <p>
+          AEO and SEO are not mutually exclusive. Well-structured content that performs well for AEO often also performs well in traditional search, because the underlying quality signals overlap. However, AEO requires specific technical investments (JSON-LD schema, semantic heading hierarchies, entity-driven content) that traditional SEO workflows do not always prioritize.
+        </p>
+
+        <p>
+          The most important conceptual shift from SEO to AEO is moving from "how do I rank for this keyword?" to "how do I become the source an AI cites when answering this question?" That reframe changes content strategy, site architecture, and measurement frameworks.
+        </p>
+      </section>
+
+      <!-- Section 4 -->
+      <section id="six-engines" class="mb-14 prose-dark">
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#F8F8F8] mb-5">4. The 6 AI engines that matter for AEO</h2>
+
+        <p>
+          GES measures brand citation and visibility across six AI engines that together represent the dominant pathways through which users are discovering brands and making decisions via AI in 2026.
+        </p>
+
+        <div class="space-y-5 mt-6">
+          <div class="card">
+            <h3 class="text-base font-bold text-[#F8F8F8] mb-2">ChatGPT (OpenAI)</h3>
+            <p class="text-sm text-white/65">
+              The most widely used AI assistant globally. ChatGPT draws on a large training corpus and, in its web-browsing mode, can retrieve and cite live sources. Brands with strong web presence, structured data, and consistent entity signals perform best in ChatGPT responses. OpenAI's search integration means that pages optimized for AEO are increasingly surfaced in ChatGPT Search.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="text-base font-bold text-[#F8F8F8] mb-2">Perplexity AI</h3>
+            <p class="text-sm text-white/65">
+              Perplexity is designed explicitly as an answer engine with live web search. It retrieves sources in real time and cites them inline. This makes traditional SEO signals (crawlability, indexation, clear content structure) more directly relevant to Perplexity citation than for some other engines. However, Perplexity also weights source authority and content freshness heavily.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="text-base font-bold text-[#F8F8F8] mb-2">Claude (Anthropic)</h3>
+            <p class="text-sm text-white/65">
+              Anthropic's Claude model family is widely used via the Claude.ai interface and increasingly embedded in enterprise workflows via API. Claude emphasizes nuanced, well-attributed responses. Brands with clear, factual, well-organized content are more likely to be accurately represented in Claude's outputs.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="text-base font-bold text-[#F8F8F8] mb-2">Google AI Overview</h3>
+            <p class="text-sm text-white/65">
+              Google's AI-generated summaries appear at the top of search results for a wide range of informational queries. They draw directly on Google's search index and structured data systems. Strong traditional SEO foundations, combined with AEO-specific structured data (FAQ schema, HowTo schema, Organization schema), improve citation rates in AI Overviews.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="text-base font-bold text-[#F8F8F8] mb-2">Google Gemini</h3>
+            <p class="text-sm text-white/65">
+              Google's Gemini assistant, available via the Gemini web app and integrated into Google Workspace, draws on Google's knowledge graph and web index. Entity clarity and structured data are particularly important for Gemini citation, as the model relies heavily on Google's knowledge graph for entity resolution.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="text-base font-bold text-[#F8F8F8] mb-2">Microsoft Copilot</h3>
+            <p class="text-sm text-white/65">
+              Microsoft Copilot, powered by OpenAI models and integrated with Bing's search index, is embedded in Windows, Microsoft 365, and the Bing search engine. Copilot retrieves from the Bing index and weighs Bing-specific signals. For brands targeting enterprise audiences using Microsoft productivity tools, Copilot citation is a high-value channel.
+            </p>
+          </div>
+        </div>
+
+        <p class="mt-6">
+          Each of these engines has a distinct architecture and citation methodology. A comprehensive AEO strategy addresses all six, because your target customers may use any combination of these tools depending on their workflow, employer tools, and personal preferences.
+        </p>
+      </section>
+
+      <!-- Section 5 -->
+      <section id="how-ges-helps" class="mb-14 prose-dark">
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#F8F8F8] mb-5">5. How GES helps with AEO</h2>
+
+        <p>
+          Generative Engine Solutions (GES) is a self-serve platform built to operationalize AEO through a structured five-module workflow. Each module addresses a specific layer of the AEO problem.
+        </p>
+
+        <div class="space-y-4 mt-6">
+          <div class="flex gap-4">
+            <div class="shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-purple-600/20 border border-purple-500/30 text-purple-400 text-sm font-bold">1</div>
+            <div>
+              <h3 class="text-base font-bold text-[#F8F8F8] mb-1">AEO Intelligence Report</h3>
+              <p class="text-sm text-white/65">
+                The free entry point. GES scans your brand or domain across all six AI engines and scores your current citation rate. The report identifies which engines cite you, which do not, and what specific gaps are driving under-citation. This baseline is the foundation for the rest of the optimization workflow.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-purple-600/20 border border-purple-500/30 text-purple-400 text-sm font-bold">2</div>
+            <div>
+              <h3 class="text-base font-bold text-[#F8F8F8] mb-1">Org Schema Builder</h3>
+              <p class="text-sm text-white/65">
+                Generates the JSON-LD @graph markup that defines your organization's identity in machine-readable terms. This includes Organization, WebSite, and related entity types. Properly deployed schema markup is one of the highest-leverage technical actions you can take for AEO.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-purple-600/20 border border-purple-500/30 text-purple-400 text-sm font-bold">3</div>
+            <div>
+              <h3 class="text-base font-bold text-[#F8F8F8] mb-1">Company Intelligence Gatherer</h3>
+              <p class="text-sm text-white/65">
+                Builds the proof-point library that AI engines cite. This module collects and structures factual claims about your company: founding date, product capabilities, customer outcomes, market position, and differentiating statistics. These become the raw material for accurate AI citations about your brand.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-purple-600/20 border border-purple-500/30 text-purple-400 text-sm font-bold">4</div>
+            <div>
+              <h3 class="text-base font-bold text-[#F8F8F8] mb-1">ICP Content Strategy</h3>
+              <p class="text-sm text-white/65">
+                Maps 30 to 100 content pages to the specific buyer questions that AI engines are being asked in your category. Rather than generic content for SEO, this strategy produces a precise grid of pages aligned to the questions your ideal customers are asking AI assistants at different stages of the buying journey.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <div class="shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-purple-600/20 border border-purple-500/30 text-purple-400 text-sm font-bold">5</div>
+            <div>
+              <h3 class="text-base font-bold text-[#F8F8F8] mb-1">Page Converter</h3>
+              <p class="text-sm text-white/65">
+                Transforms existing pages into LLM-optimized assets. This module restructures your existing content using the heading hierarchy, semantic markup, and factual organization that language models prefer to cite. It closes the gap between your current content and AEO best practices without requiring you to write everything from scratch.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <p class="mt-6">
+          Together, these five modules form a complete AEO workflow: diagnose, structure, document, plan, and execute. The GES platform is designed so each module's output feeds the next, compounding the impact of the work across the full workflow.
+        </p>
+      </section>
+
+      <!-- Section 6 -->
+      <section id="aeo-and-geo" class="mb-14 prose-dark">
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#F8F8F8] mb-5">6. AEO within the broader GEO landscape</h2>
+
+        <p>
+          Answer Engine Optimization is the first and most tractable layer of a broader emerging category called Generative Engine Optimization (GEO). Understanding the relationship between AEO and GEO helps clarify the strategic direction of this field.
+        </p>
+
+        <h3 class="text-lg font-bold text-[#F8F8F8] mt-7 mb-3">What GEO includes beyond AEO</h3>
+        <p>
+          Generative Engine Optimization encompasses all the practices required to maintain brand visibility, accuracy, and commercial presence across AI-native systems. AEO addresses content citation. GEO extends to:
+        </p>
+
+        <ul class="space-y-2 list-disc list-inside text-white/70 text-sm mt-4">
+          <li><strong class="text-white/90">Reputation management for LLMs:</strong> Ensuring that the information AI systems hold about your brand is accurate, positive, and up to date.</li>
+          <li><strong class="text-white/90">Agent-to-agent discoverability:</strong> As AI agents increasingly interact with other AI systems to complete tasks, making your services discoverable and callable by automated agents is a new distribution channel.</li>
+          <li><strong class="text-white/90">API and tool readiness:</strong> Exposing your product's capabilities via APIs that AI assistants and agentic frameworks can invoke directly.</li>
+          <li><strong class="text-white/90">Commerce layer optimization:</strong> Positioning your products for AI-native purchasing workflows, where an AI assistant completes a transaction on behalf of a user.</li>
+        </ul>
+
+        <p class="mt-5">
+          GES is designed to grow from its AEO foundation into full GEO coverage. The current five-module platform addresses the highest-impact, most immediately actionable layer of the problem. Future modules will address reputation management, agent discoverability, and commerce readiness as these channels mature.
+        </p>
+
+        <h3 class="text-lg font-bold text-[#F8F8F8] mt-7 mb-3">Why AEO is the right starting point</h3>
+        <p>
+          Of all the layers in the GEO stack, AEO has the clearest playbook, the most measurable outcomes, and the most direct impact on brand visibility today. You can run an AEO audit, identify gaps, make structural improvements to your content and schema, and measure the delta in citation rate within weeks. That feedback loop is fast enough to be actionable, which makes AEO both the right entry point and the right foundation for the broader GEO effort.
+        </p>
+      </section>
+
+      <!-- Section 7 -->
+      <section id="getting-started" class="mb-14 prose-dark">
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#F8F8F8] mb-5">7. How to get started with AEO</h2>
+
+        <p>
+          Starting with AEO does not require a large budget or an agency engagement. The most important first step is establishing your current baseline: how visible is your brand across the major AI engines, and what are the specific gaps driving under-citation?
+        </p>
+
+        <h3 class="text-lg font-bold text-[#F8F8F8] mt-7 mb-3">Step 1: Run an AEO audit</h3>
+        <p>
+          Query each of the six major AI engines with prompts relevant to your category, your competitors, and your specific products. Note which brands are cited, how accurately your brand is described when mentioned, and which queries return no mention of your brand at all.
+        </p>
+
+        <h3 class="text-lg font-bold text-[#F8F8F8] mt-7 mb-3">Step 2: Implement schema markup</h3>
+        <p>
+          Add JSON-LD Organization schema to your site's homepage and key landing pages. At minimum, define your organization's name, description, URL, logo, founding date, and sameAs links to authoritative profiles. This is the fastest technical AEO improvement you can make.
+        </p>
+
+        <h3 class="text-lg font-bold text-[#F8F8F8] mt-7 mb-3">Step 3: Build your proof-point library</h3>
+        <p>
+          Compile a structured document of verifiable facts about your company: customer statistics, product capabilities, pricing, founding details, and differentiated claims. These become the source material for accurately representing your brand when AI systems encounter relevant queries.
+        </p>
+
+        <h3 class="text-lg font-bold text-[#F8F8F8] mt-7 mb-3">Step 4: Audit your content for semantic structure</h3>
+        <p>
+          Review your most important pages for heading hierarchy, factual density, and semantic clarity. Pages should have clear H1 headlines, meaningful H2 and H3 subheadings that stand alone as answers to questions, and paragraphs that make single, attributable points.
+        </p>
+
+        <h3 class="text-lg font-bold text-[#F8F8F8] mt-7 mb-3">Step 5: Measure and iterate</h3>
+        <p>
+          Re-run your AI engine queries on a regular cadence (monthly is a good starting point) and track changes in citation rate, mention accuracy, and the specific engines where your brand appears. Use these measurements to prioritize the next round of optimizations.
+        </p>
+
+        <div class="mt-8 p-6 rounded-xl bg-purple-600/10 border border-purple-500/20">
+          <p class="text-sm font-semibold text-white/90 mb-2">Start with the GES Free AEO Report</p>
+          <p class="text-sm text-white/60 mb-4">
+            GES automates Step 1 (the AEO audit) and gives you a scored breakdown of your citation rate across all six engines. It's free, takes minutes to run, and gives you the data you need to prioritize the rest of your AEO work.
+          </p>
+          <a href="/report/new" class="btn-primary text-sm">Get your free AEO score</a>
+        </div>
+      </section>
+
+      <!-- Summary -->
+      <section class="prose-dark border-t border-white/10 pt-10 mt-10">
+        <h2 class="text-2xl font-bold text-[#F8F8F8] mb-4">Summary</h2>
+        <p>
+          Answer Engine Optimization (AEO) is the discipline of structuring your brand's content, data, and digital presence to be cited by AI-powered answer engines. As users increasingly rely on ChatGPT, Perplexity, Claude, Google AI Overview, Gemini, and Copilot for discovery and research, AEO has become a core component of any brand's digital strategy.
+        </p>
+        <p>
+          AEO differs from traditional SEO in its target (AI citation vs. keyword ranking), its primary signals (structured data and factual clarity vs. backlinks and authority), and its competitive dynamics (a short list of citations vs. ten positions on a page). The most tractable starting point is an AEO audit, followed by schema markup, proof-point documentation, and content restructuring.
+        </p>
+        <p>
+          GES provides a five-module platform to make this workflow systematic and measurable. Start with the free AEO Intelligence Report to establish your baseline and prioritize where to focus.
+        </p>
+      </section>
+
+    </div>
+  </article>
+
+  <!-- Related links -->
+  <aside class="px-4 sm:px-6 lg:px-8 pb-20 border-t border-white/5">
+    <div class="max-w-3xl mx-auto pt-12">
+      <h2 class="text-lg font-bold text-[#F8F8F8] mb-6">Related resources</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <a href="/report/new" class="card hover:border-white/20 transition-colors group">
+          <p class="text-xs text-white/40 mb-2 uppercase tracking-widest font-semibold">Free tool</p>
+          <p class="text-sm font-semibold text-white/80 group-hover:text-white transition-colors">Run your AEO Intelligence Report</p>
+        </a>
+        <a href="/pricing" class="card hover:border-white/20 transition-colors group">
+          <p class="text-xs text-white/40 mb-2 uppercase tracking-widest font-semibold">Pricing</p>
+          <p class="text-sm font-semibold text-white/80 group-hover:text-white transition-colors">See GES plans and module details</p>
+        </a>
+        <a href="/" class="card hover:border-white/20 transition-colors group">
+          <p class="text-xs text-white/40 mb-2 uppercase tracking-widest font-semibold">Platform</p>
+          <p class="text-sm font-semibold text-white/80 group-hover:text-white transition-colors">Explore the 5 GES modules</p>
+        </a>
+      </div>
+    </div>
+  </aside>
+</BaseLayout>

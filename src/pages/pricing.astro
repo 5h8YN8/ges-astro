@@ -1,0 +1,280 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PricingTable from '../components/PricingTable.astro';
+
+const pricingSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "GES Pricing",
+  "url": "https://app.generativeenginesolutions.com/pricing",
+  "description": "Pricing for Generative Engine Solutions. Free plan with 5 credits, Growth at $299/mo with 50 credits, Scale at $799/mo with 200 credits.",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Free",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "5 one-time credits. Includes Module 1: AEO Intelligence Report.",
+      "url": "https://app.generativeenginesolutions.com/signup"
+    },
+    {
+      "@type": "Offer",
+      "name": "Growth",
+      "price": "299",
+      "priceCurrency": "USD",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "299",
+        "priceCurrency": "USD",
+        "unitCode": "MON"
+      },
+      "description": "50 credits per month. All 5 GES Modules. Priority support.",
+      "url": "https://app.generativeenginesolutions.com/signup?plan=growth"
+    },
+    {
+      "@type": "Offer",
+      "name": "Scale",
+      "price": "799",
+      "priceCurrency": "USD",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "799",
+        "priceCurrency": "USD",
+        "unitCode": "MON"
+      },
+      "description": "200 credits per month. All 5 GES Modules. Custom onboarding and dedicated support.",
+      "url": "https://app.generativeenginesolutions.com/signup?plan=scale"
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Pricing - GES Generative Engine Solutions"
+  description="GES pricing plans: Free (5 credits), Growth ($299/mo, 50 credits), Scale ($799/mo, 200 credits). All plans include access to GES modules for Answer Engine Optimization."
+  canonicalPath="/pricing"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(pricingSchema)} />
+  </Fragment>
+
+  <!-- Page Header -->
+  <section class="px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center">
+    <div class="max-w-3xl mx-auto">
+      <span class="section-label">Pricing</span>
+      <h1 class="text-4xl sm:text-5xl font-bold text-[#F8F8F8] mb-5">
+        Simple, transparent pricing
+      </h1>
+      <p class="text-lg text-white/55 max-w-2xl mx-auto leading-relaxed">
+        Start free with your first AEO Intelligence Report. Upgrade to Growth or Scale when you're ready to run the complete GEO workflow. All plans are month-to-month with no contracts.
+      </p>
+    </div>
+  </section>
+
+  <!-- Pricing Table -->
+  <section class="px-4 sm:px-6 lg:px-8 pb-20">
+    <div class="max-w-7xl mx-auto">
+      <PricingTable showModuleTable={true} showCreditBreakdown={true} />
+
+      <p class="text-center text-xs text-white/30 mt-10">
+        All prices in USD. Paid plans renew monthly. Credits reset on billing date. Unused credits do not roll over.
+      </p>
+    </div>
+  </section>
+
+  <!-- Plan Details -->
+  <section class="px-4 sm:px-6 lg:px-8 py-16 border-t border-white/5">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-[#F8F8F8] mb-8 text-center">Plan details</h2>
+
+      <div class="space-y-8">
+        <!-- Free Plan Details -->
+        <div class="card">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-bold text-[#F8F8F8]">Free Plan</h3>
+            <span class="text-2xl font-bold text-[#F8F8F8]">$0</span>
+          </div>
+          <p class="text-sm text-white/60 mb-4 leading-relaxed">
+            The Free plan gives you 5 one-time credits to run Module 1: the AEO Intelligence Report. This single report scans your brand or domain across ChatGPT, Perplexity, Claude, Google AI Overview, Gemini, and Microsoft Copilot. You receive a scored breakdown of your citation rate and a prioritized list of optimization opportunities.
+          </p>
+          <ul class="space-y-2 text-sm text-white/60">
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-400 mt-0.5" aria-hidden="true">+</span>
+              5 one-time credits (no expiry)
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-400 mt-0.5" aria-hidden="true">+</span>
+              Module 1: AEO Intelligence Report
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-400 mt-0.5" aria-hidden="true">+</span>
+              Visibility scan across all 6 major AI engines
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-400 mt-0.5" aria-hidden="true">+</span>
+              PDF export and results dashboard
+            </li>
+          </ul>
+          <div class="mt-6">
+            <a href="/signup" class="btn-secondary text-sm">Start free</a>
+          </div>
+        </div>
+
+        <!-- Growth Plan Details -->
+        <div class="card border-purple-500/30 bg-purple-950/10">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h3 class="text-lg font-bold text-[#F8F8F8]">Growth Plan</h3>
+              <span class="text-xs font-medium text-purple-400">Most popular</span>
+            </div>
+            <div class="text-right">
+              <span class="text-2xl font-bold text-[#F8F8F8]">$299</span>
+              <span class="text-sm text-white/40 block">/month</span>
+            </div>
+          </div>
+          <p class="text-sm text-white/60 mb-4 leading-relaxed">
+            The Growth plan unlocks all five GES modules and gives you 50 credits per month. This is the right plan for businesses actively building out their AEO and GEO strategy. Run multiple AEO scans, build your org schema, create a company intelligence library, plan up to 30 ICP content pages, and convert existing pages to LLM-optimized assets.
+          </p>
+          <ul class="space-y-2 text-sm text-white/60">
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-400 mt-0.5" aria-hidden="true">+</span>
+              50 credits refreshed monthly
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-400 mt-0.5" aria-hidden="true">+</span>
+              All 5 GES Modules
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-400 mt-0.5" aria-hidden="true">+</span>
+              ICP Content Strategy up to 30 pages
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-400 mt-0.5" aria-hidden="true">+</span>
+              Priority email support
+            </li>
+          </ul>
+          <div class="mt-6">
+            <a href="/signup?plan=growth" class="btn-primary text-sm">Start Growth</a>
+          </div>
+        </div>
+
+        <!-- Scale Plan Details -->
+        <div class="card">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-bold text-[#F8F8F8]">Scale Plan</h3>
+            <div class="text-right">
+              <span class="text-2xl font-bold text-[#F8F8F8]">$799</span>
+              <span class="text-sm text-white/40 block">/month</span>
+            </div>
+          </div>
+          <p class="text-sm text-white/60 mb-4 leading-relaxed">
+            The Scale plan is built for agencies and enterprises running GEO workflows across multiple brands or at higher volume. You get 200 credits per month, a custom onboarding session, ICP content strategy up to 100 pages, multi-brand support, a dedicated Slack support channel, and a dedicated account manager.
+          </p>
+          <ul class="space-y-2 text-sm text-white/60">
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-400 mt-0.5" aria-hidden="true">+</span>
+              200 credits refreshed monthly
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-400 mt-0.5" aria-hidden="true">+</span>
+              Custom onboarding session
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-400 mt-0.5" aria-hidden="true">+</span>
+              ICP Content Strategy up to 100 pages
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-400 mt-0.5" aria-hidden="true">+</span>
+              Multi-brand support
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-400 mt-0.5" aria-hidden="true">+</span>
+              Dedicated Slack support channel
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-400 mt-0.5" aria-hidden="true">+</span>
+              Dedicated account manager
+            </li>
+          </ul>
+          <div class="mt-6">
+            <a href="/signup?plan=scale" class="btn-secondary text-sm">Start Scale</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Billing FAQ -->
+  <section class="px-4 sm:px-6 lg:px-8 py-16 border-t border-white/5">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-[#F8F8F8] mb-8 text-center">Billing questions</h2>
+      <div class="space-y-3">
+
+        <details class="card group">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer py-1">
+            <span class="text-sm font-semibold text-[#F8F8F8] group-open:text-purple-300 transition-colors">
+              Do unused credits roll over?
+            </span>
+            <svg class="summary-chevron shrink-0 transition-transform duration-200 text-white/30" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <p class="mt-3 text-sm text-white/60 leading-relaxed">
+            No. Monthly credits reset on your billing date and unused credits do not carry forward. Free plan credits have no expiry.
+          </p>
+        </details>
+
+        <details class="card group">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer py-1">
+            <span class="text-sm font-semibold text-[#F8F8F8] group-open:text-purple-300 transition-colors">
+              Can I upgrade or downgrade mid-cycle?
+            </span>
+            <svg class="summary-chevron shrink-0 transition-transform duration-200 text-white/30" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <p class="mt-3 text-sm text-white/60 leading-relaxed">
+            Yes. You can upgrade at any time and the new plan takes effect immediately, prorated for the remainder of your billing cycle. Downgrades take effect at the next renewal date.
+          </p>
+        </details>
+
+        <details class="card group">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer py-1">
+            <span class="text-sm font-semibold text-[#F8F8F8] group-open:text-purple-300 transition-colors">
+              How do I cancel?
+            </span>
+            <svg class="summary-chevron shrink-0 transition-transform duration-200 text-white/30" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <p class="mt-3 text-sm text-white/60 leading-relaxed">
+            Go to Settings in your GES dashboard and select Cancel Plan. Your access continues until the end of the current billing period. No questions asked, no cancellation fees.
+          </p>
+        </details>
+
+        <details class="card group">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer py-1">
+            <span class="text-sm font-semibold text-[#F8F8F8] group-open:text-purple-300 transition-colors">
+              What payment methods do you accept?
+            </span>
+            <svg class="summary-chevron shrink-0 transition-transform duration-200 text-white/30" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <p class="mt-3 text-sm text-white/60 leading-relaxed">
+            All major credit and debit cards via Stripe (Visa, Mastercard, American Express, Discover). Invoicing is available on the Scale plan on request.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="px-4 sm:px-6 lg:px-8 py-16 border-t border-white/5">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-2xl font-bold text-[#F8F8F8] mb-3">Start for free today</h2>
+      <p class="text-white/50 mb-7 text-sm">No credit card required. Run your first AEO Intelligence Report in minutes.</p>
+      <a href="/report/new" class="btn-primary">Get your free AEO score</a>
+    </div>
+  </section>
+</BaseLayout>
