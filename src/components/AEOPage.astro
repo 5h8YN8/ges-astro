@@ -1,0 +1,678 @@
+---
+/**
+ * AEOPage.astro
+ *
+ * Renders a generated AEO content page as clean semantic HTML.
+ * Optimized for AI engine crawlers (ChatGPT, Perplexity, Claude, Google AI Overview, Gemini, Copilot).
+ *
+ * No em dashes anywhere. No JavaScript-gated content.
+ * All content is crawlable without JS.
+ */
+
+import {
+  renderSectionContent,
+  injectInternalLinks,
+  sanitizeForCrawlers,
+  type InternalLink,
+  type ContentType,
+} from "../utils/aeo-renderer";
+
+// ---------------------------------------------------------------------------
+// Type definitions
+// ---------------------------------------------------------------------------
+
+interface Section {
+  heading: string;
+  heading_level: 2 | 3;
+  content: string;
+  content_type: ContentType | string;
+  subsections?: Section[];
+}
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface Tradeoff {
+  pro: string;
+  con: string;
+}
+
+interface EntityReference {
+  name: string;
+  type: string;
+  context: string;
+}
+
+interface InternalLinkSuggestion {
+  anchor_text: string;
+  target_topic: string;
+  relationship: string;
+}
+
+interface CTA {
+  text: string;
+  subtext?: string;
+}
+
+interface SchemaHints {
+  primary_type: string;
+  secondary_types?: string[];
+  keywords?: string[];
+}
+
+interface GeneratedContent {
+  title: string;
+  meta_description: string;
+  sections: Section[];
+  faqs?: FAQ[];
+  tradeoffs?: Tradeoff[];
+  proof_points?: string[];
+  entity_references?: EntityReference[];
+  internal_link_suggestions?: InternalLinkSuggestion[];
+  cta?: CTA;
+  schema_hints?: SchemaHints;
+}
+
+// ---------------------------------------------------------------------------
+// Props
+// ---------------------------------------------------------------------------
+
+interface Props {
+  content: GeneratedContent;
+  jsonld: object;
+  internalLinks?: InternalLink[];
+  pageUrl: string;
+}
+
+const { content, jsonld, internalLinks = [], pageUrl } = Astro.props;
+
+const {
+  title,
+  meta_description,
+  sections = [],
+  faqs = [],
+  tradeoffs = [],
+  proof_points = [],
+  entity_references = [],
+  cta,
+} = content;
+
+// ---------------------------------------------------------------------------
+// Helpers used in the template
+// ---------------------------------------------------------------------------
+
+/**
+ * Sanitize a plain text string for safe inline display.
+ */
+function clean(text: string): string {
+  return sanitizeForCrawlers(text);
+}
+
+/**
+ * Build a slug-style id from a heading string.
+ */
+function headingId(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+// Pre-compute section IDs for the table of contents
+const sectionIds = sections.map((s) => headingId(s.heading));
+
+// Determine if a "Related Resources" section should be shown at the bottom.
+// Show it when internalLinks are provided but none were naturally injected
+// (we always show it if links exist, regardless, as a guaranteed crawlable block).
+const hasRelatedLinks = internalLinks.length > 0;
+
+// JSON-LD serialized for safe inline script injection
+const jsonldString = JSON.stringify(jsonld);
+---
+
+<!--
+  AEOPage renders inside BaseLayout or standalone.
+  JSON-LD is injected via the named "schema" slot so it lands in <head>.
+  The caller (page file) passes this component's output via a Fragment slot.
+-->
+
+<Fragment slot="schema">
+  <script type="application/ld+json" set:html={jsonldString} />
+</Fragment>
+
+<article
+  class="px-4 sm:px-6 lg:px-8 py-16 sm:py-24"
+  itemscope
+  itemtype="https://schema.org/Article"
+>
+  <div class="max-w-3xl mx-auto">
+
+    <!-- ------------------------------------------------------------------ -->
+    <!-- Article header                                                       -->
+    <!-- ------------------------------------------------------------------ -->
+    <header class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="section-label">Guide</span>
+        <a
+          href={pageUrl}
+          rel="canonical"
+          class="text-xs text-white/30 hover:text-white/50 transition-colors"
+          itemprop="url"
+        >
+          {pageUrl}
+        </a>
+      </div>
+
+      <h1
+        class="text-4xl sm:text-5xl font-bold text-[#F8F8F8] leading-tight mb-6"
+        itemprop="headline"
+      >
+        {clean(title)}
+      </h1>
+
+      <p class="text-xl text-white/60 leading-relaxed" itemprop="description">
+        {clean(meta_description)}
+      </p>
+
+      <div
+        class="flex items-center gap-3 mt-6 pt-6 border-t border-white/10"
+        itemprop="publisher"
+        itemscope
+        itemtype="https://schema.org/Organization"
+      >
+        <div class="flex items-center justify-center w-8 h-8 rounded-full bg-purple-600/20 border border-purple-500/30">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <rect width="32" height="32" rx="8" fill="#7C3AED"></rect>
+            <path
+              d="M8 16C8 11.582 11.582 8 16 8C18.387 8 20.541 8.972 22.1 10.55L19.778 12.872C18.822 11.888 17.482 11.28 16 11.28C13.386 11.28 11.28 13.386 11.28 16C11.28 18.614 13.386 20.72 16 20.72C18.26 20.72 20.14 19.142 20.633 17.04H16V13.76H24.16C24.24 14.244 24.28 14.746 24.28 15.26V16C24.28 20.584 20.584 24.28 16 24.28C11.416 24.28 8 20.418 8 16Z"
+              fill="white"></path>
+          </svg>
+        </div>
+        <span class="text-sm text-white/50">
+          By <span class="text-white/70" itemprop="name">Generative Engine Solutions</span>
+        </span>
+        <meta itemprop="url" content="https://generativeenginesolutions.com" />
+      </div>
+    </header>
+
+    <!-- ------------------------------------------------------------------ -->
+    <!-- Table of contents (only when 3+ sections exist)                     -->
+    <!-- ------------------------------------------------------------------ -->
+    {sections.length >= 3 && (
+      <nav class="card mb-12" aria-label="Table of contents">
+        <h2 class="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">
+          Contents
+        </h2>
+        <ol class="space-y-2 text-sm">
+          {sections.map((section, i) => (
+            <li>
+              <a
+                href={`#${sectionIds[i]}`}
+                class="text-purple-400 hover:text-purple-300 transition-colors"
+              >
+                {i + 1}. {clean(section.heading)}
+              </a>
+            </li>
+          ))}
+          {faqs.length > 0 && (
+            <li>
+              <a
+                href="#faq"
+                class="text-purple-400 hover:text-purple-300 transition-colors"
+              >
+                {sections.length + 1}. Frequently Asked Questions
+              </a>
+            </li>
+          )}
+          {tradeoffs.length > 0 && (
+            <li>
+              <a
+                href="#tradeoffs"
+                class="text-purple-400 hover:text-purple-300 transition-colors"
+              >
+                Pros and Cons
+              </a>
+            </li>
+          )}
+        </ol>
+      </nav>
+    )}
+
+    <!-- ------------------------------------------------------------------ -->
+    <!-- Main sections                                                        -->
+    <!-- ------------------------------------------------------------------ -->
+    {sections.map((section, i) => (
+      <section
+        id={sectionIds[i]}
+        class="mb-14 prose-dark"
+        itemprop="articleBody"
+      >
+        <!-- H2 heading -->
+        {section.heading_level === 2 && (
+          <h2 class="text-2xl sm:text-3xl font-bold text-[#F8F8F8] mb-5">
+            {i + 1}. {clean(section.heading)}
+          </h2>
+        )}
+
+        <!-- H3 heading (for subsections rendered as top-level, graceful fallback) -->
+        {section.heading_level === 3 && (
+          <h3 class="text-xl font-bold text-[#F8F8F8] mb-4">
+            {clean(section.heading)}
+          </h3>
+        )}
+
+        <!-- Section body based on content_type -->
+        {section.content_type === "narrative" && (
+          <div
+            class="section-narrative prose-dark space-y-4"
+            set:html={injectInternalLinks(
+              renderSectionContent(section.content, "narrative"),
+              internalLinks
+            )}
+          />
+        )}
+
+        {section.content_type === "steps" && (
+          <div
+            class="section-steps-wrapper"
+            set:html={injectInternalLinks(
+              renderSectionContent(section.content, "steps"),
+              internalLinks
+            )}
+          />
+        )}
+
+        {section.content_type === "comparison_table" && (
+          <div
+            class="section-comparison-wrapper card"
+            set:html={renderSectionContent(section.content, "comparison_table")}
+          />
+        )}
+
+        {section.content_type === "definition" && (
+          <div
+            class="section-definition-wrapper"
+            set:html={injectInternalLinks(
+              renderSectionContent(section.content, "definition"),
+              internalLinks
+            )}
+          />
+        )}
+
+        {section.content_type === "data_point" && (
+          <div
+            class="section-data-wrapper"
+            set:html={renderSectionContent(section.content, "data_point")}
+          />
+        )}
+
+        {/* Fallback for unknown content types */}
+        {!["narrative","steps","comparison_table","definition","data_point"].includes(section.content_type as string) && (
+          <div
+            class="section-narrative prose-dark space-y-4"
+            set:html={injectInternalLinks(
+              renderSectionContent(section.content, "narrative"),
+              internalLinks
+            )}
+          />
+        )}
+
+        <!-- Subsections (H3 level) -->
+        {section.subsections && section.subsections.length > 0 && (
+          <div class="subsections mt-8 space-y-8">
+            {section.subsections.map((sub) => (
+              <div id={headingId(sub.heading)} class="subsection">
+                <h3 class="text-lg font-bold text-[#F8F8F8] mt-6 mb-3">
+                  {clean(sub.heading)}
+                </h3>
+
+                {sub.content_type === "narrative" && (
+                  <div
+                    class="section-narrative prose-dark space-y-4"
+                    set:html={injectInternalLinks(
+                      renderSectionContent(sub.content, "narrative"),
+                      internalLinks
+                    )}
+                  />
+                )}
+
+                {sub.content_type === "steps" && (
+                  <div
+                    class="section-steps-wrapper"
+                    set:html={injectInternalLinks(
+                      renderSectionContent(sub.content, "steps"),
+                      internalLinks
+                    )}
+                  />
+                )}
+
+                {sub.content_type === "comparison_table" && (
+                  <div
+                    class="section-comparison-wrapper card"
+                    set:html={renderSectionContent(sub.content, "comparison_table")}
+                  />
+                )}
+
+                {sub.content_type === "definition" && (
+                  <div
+                    class="section-definition-wrapper"
+                    set:html={injectInternalLinks(
+                      renderSectionContent(sub.content, "definition"),
+                      internalLinks
+                    )}
+                  />
+                )}
+
+                {sub.content_type === "data_point" && (
+                  <div
+                    class="section-data-wrapper"
+                    set:html={renderSectionContent(sub.content, "data_point")}
+                  />
+                )}
+
+                {!["narrative","steps","comparison_table","definition","data_point"].includes(sub.content_type as string) && (
+                  <div
+                    class="section-narrative prose-dark space-y-4"
+                    set:html={injectInternalLinks(
+                      renderSectionContent(sub.content, "narrative"),
+                      internalLinks
+                    )}
+                  />
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
+    ))}
+
+    <!-- ------------------------------------------------------------------ -->
+    <!-- Proof points                                                         -->
+    <!-- ------------------------------------------------------------------ -->
+    {proof_points.length > 0 && (
+      <section class="mb-14" aria-label="Key proof points">
+        <h2 class="text-2xl font-bold text-[#F8F8F8] mb-5">Key Facts</h2>
+        <ul class="space-y-3" role="list">
+          {proof_points.map((point) => (
+            <li class="flex gap-3">
+              <span
+                class="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center"
+                aria-hidden="true"
+              >
+                <svg
+                  width="10"
+                  height="10"
+                  viewBox="0 0 10 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2 5.5L4 7.5L8 3"
+                    stroke="#10B981"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              </span>
+              <span class="text-sm text-white/70 leading-relaxed">
+                {clean(point)}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <!-- ------------------------------------------------------------------ -->
+    <!-- Tradeoffs: pros and cons                                             -->
+    <!-- ------------------------------------------------------------------ -->
+    {tradeoffs.length > 0 && (
+      <section id="tradeoffs" class="mb-14" aria-label="Pros and cons">
+        <h2 class="text-2xl font-bold text-[#F8F8F8] mb-5">Pros and Cons</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+          <!-- Pros column -->
+          <div class="card">
+            <h3 class="text-xs font-semibold uppercase tracking-widest text-emerald-400 mb-4">
+              Pros
+            </h3>
+            <ul class="space-y-3" role="list">
+              {tradeoffs.map((t) => (
+                <li class="flex gap-3">
+                  <span
+                    class="mt-0.5 shrink-0 text-emerald-400"
+                    aria-hidden="true"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"></circle>
+                      <path
+                        d="M5 8.5L7 10.5L11 6"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </span>
+                  <span class="text-sm text-white/70">{clean(t.pro)}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Cons column -->
+          <div class="card">
+            <h3 class="text-xs font-semibold uppercase tracking-widest text-rose-400 mb-4">
+              Cons
+            </h3>
+            <ul class="space-y-3" role="list">
+              {tradeoffs.map((t) => (
+                <li class="flex gap-3">
+                  <span
+                    class="mt-0.5 shrink-0 text-rose-400"
+                    aria-hidden="true"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"></circle>
+                      <path
+                        d="M6 6L10 10M10 6L6 10"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                      ></path>
+                    </svg>
+                  </span>
+                  <span class="text-sm text-white/70">{clean(t.con)}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        </div>
+      </section>
+    )}
+
+    <!-- ------------------------------------------------------------------ -->
+    <!-- FAQ section                                                          -->
+    <!-- ------------------------------------------------------------------ -->
+    {faqs.length > 0 && (
+      <section
+        id="faq"
+        class="mb-14"
+        aria-label="Frequently asked questions"
+        itemscope
+        itemtype="https://schema.org/FAQPage"
+      >
+        <h2 class="text-2xl font-bold text-[#F8F8F8] mb-6">
+          Frequently Asked Questions
+        </h2>
+
+        <div class="space-y-3">
+          {faqs.map((faq) => (
+            <div
+              itemscope
+              itemprop="mainEntity"
+              itemtype="https://schema.org/Question"
+              class="card"
+            >
+              <details>
+                <summary class="flex items-start justify-between gap-4 cursor-pointer group">
+                  <h3
+                    class="text-sm font-semibold text-white/90 leading-snug group-hover:text-white transition-colors"
+                    itemprop="name"
+                  >
+                    {clean(faq.question)}
+                  </h3>
+                  <span
+                    class="summary-chevron shrink-0 mt-0.5 transition-transform duration-200 text-white/40"
+                    aria-hidden="true"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4 6L8 10L12 6"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </span>
+                </summary>
+
+                <div
+                  class="mt-4 pt-4 border-t border-white/10"
+                  itemscope
+                  itemprop="acceptedAnswer"
+                  itemtype="https://schema.org/Answer"
+                >
+                  <p class="text-sm text-white/65 leading-relaxed" itemprop="text">
+                    {clean(faq.answer)}
+                  </p>
+                </div>
+              </details>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- ------------------------------------------------------------------ -->
+    <!-- Entity references (machine-readable, visually subtle)               -->
+    <!-- ------------------------------------------------------------------ -->
+    {entity_references.length > 0 && (
+      <section
+        class="mb-14 border-t border-white/5 pt-10"
+        aria-label="Related entities"
+      >
+        <h2 class="text-sm font-semibold uppercase tracking-widest text-white/30 mb-4">
+          Related Entities
+        </h2>
+        <ul class="flex flex-wrap gap-2" role="list">
+          {entity_references.map((entity) => (
+            <li>
+              <span
+                class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white/50"
+                data-entity-type={entity.type}
+              >
+                <span class="text-white/30">{entity.type}</span>
+                <span class="text-white/60">{clean(entity.name)}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <!-- ------------------------------------------------------------------ -->
+    <!-- Internal links: Related Resources block                             -->
+    <!-- ------------------------------------------------------------------ -->
+    {hasRelatedLinks && (
+      <section
+        class="mb-14 border-t border-white/5 pt-10"
+        aria-label="Related resources"
+      >
+        <h2 class="text-lg font-bold text-[#F8F8F8] mb-5">Related Resources</h2>
+        <nav aria-label="Internal resource links">
+          <ul class="space-y-2" role="list">
+            {internalLinks.map((link) => (
+              <li>
+                <a
+                  href={link.target_url}
+                  class="inline-flex items-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition-colors underline underline-offset-2"
+                >
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                    class="shrink-0"
+                  >
+                    <path
+                      d="M2.5 6H9.5M6.5 3L9.5 6L6.5 9"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                  {link.target_title || link.anchor_text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </section>
+    )}
+
+    <!-- ------------------------------------------------------------------ -->
+    <!-- CTA block                                                            -->
+    <!-- ------------------------------------------------------------------ -->
+    {cta && (
+      <section
+        class="mt-10 p-8 rounded-xl bg-purple-600/10 border border-purple-500/20 text-center"
+        aria-label="Call to action"
+      >
+        <p class="text-xl font-bold text-white mb-2">{clean(cta.text)}</p>
+        {cta.subtext && (
+          <p class="text-sm text-white/60 mb-6 max-w-lg mx-auto">
+            {clean(cta.subtext)}
+          </p>
+        )}
+        <a href="/report/new" class="btn-primary">
+          Get your free AEO score
+        </a>
+      </section>
+    )}
+
+  </div>
+</article>
