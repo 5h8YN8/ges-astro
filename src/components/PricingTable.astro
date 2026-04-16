@@ -23,6 +23,22 @@ const plans = [
     ],
   },
   {
+    name: 'Starter',
+    price: '$97',
+    period: '/mo',
+    description: 'For founders and small teams getting started with AEO.',
+    credits: '20 credits/mo',
+    cta: 'Start Starter plan',
+    ctaHref: 'https://app.generativeenginesolutions.com/signup?plan=starter',
+    highlight: false,
+    features: [
+      'All 5 AEO modules',
+      'AEO Intelligence Reports',
+      'Schema Builder access',
+      'Email support',
+    ],
+  },
+  {
     name: 'Growth',
     price: '$299',
     period: '/mo',
@@ -59,11 +75,11 @@ const plans = [
 ];
 
 const modules = [
-  { name: 'AEO Intelligence Report', free: true, growth: true, scale: true },
-  { name: 'Org Schema Builder', free: false, growth: true, scale: true },
-  { name: 'Company Intelligence Hub', free: false, growth: true, scale: true },
-  { name: 'ICP Content Strategy', free: false, growth: true, scale: true },
-  { name: 'Page Converter', free: false, growth: true, scale: true },
+  { name: 'AEO Intelligence Report', free: true, starter: true, growth: true, scale: true },
+  { name: 'Org Schema Builder', free: false, starter: true, growth: true, scale: true },
+  { name: 'Company Intelligence Hub', free: false, starter: true, growth: true, scale: true },
+  { name: 'ICP Content Strategy', free: false, starter: true, growth: true, scale: true },
+  { name: 'Page Converter', free: false, starter: true, growth: true, scale: true },
 ];
 
 const creditCosts = [
@@ -76,7 +92,7 @@ const creditCosts = [
 ];
 ---
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
   {plans.map((plan) => (
     <div
       class={`relative flex flex-col rounded-xl border p-6 ${
@@ -142,6 +158,7 @@ const creditCosts = [
         <tr class="border-b border-white/10">
           <th class="text-left py-3 pr-4 text-white/50 font-medium">Module</th>
           <th class="text-center py-3 px-4 text-white/50 font-medium">Free</th>
+          <th class="text-center py-3 px-4 text-white/50 font-medium">Starter</th>
           <th class="text-center py-3 px-4 text-purple-400 font-semibold">Growth</th>
           <th class="text-center py-3 px-4 text-white/50 font-medium">Scale</th>
         </tr>
@@ -152,6 +169,12 @@ const creditCosts = [
             <td class="py-3 pr-4 text-white/80">{mod.name}</td>
             <td class="py-3 px-4 text-center">
               {mod.free
+                ? <span class="text-emerald-400" aria-label="Included">&#10003;</span>
+                : <span class="text-white/20" aria-label="Not included">&#10005;</span>
+              }
+            </td>
+            <td class="py-3 px-4 text-center">
+              {mod.starter
                 ? <span class="text-emerald-400" aria-label="Included">&#10003;</span>
                 : <span class="text-white/20" aria-label="Not included">&#10005;</span>
               }
