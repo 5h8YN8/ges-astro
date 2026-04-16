@@ -1,0 +1,68 @@
+<!-- Cookie Consent Banner -->
+<div
+  id="cookie-banner"
+  class="fixed bottom-0 left-0 right-0 z-[100] p-4 translate-y-full transition-transform duration-500 ease-out"
+  role="dialog"
+  aria-label="Cookie consent"
+>
+  <div class="max-w-4xl mx-auto bg-[#1A1A1A]/95 backdrop-blur-xl border border-white/10 rounded-xl p-5 shadow-2xl flex flex-col sm:flex-row items-start sm:items-center gap-4">
+    <p class="flex-1 text-sm text-white/60">
+      We use cookies to enhance your experience and analyze site traffic. By clicking "Accept", you consent to our use of cookies. See our
+      <a href="/privacy" class="text-purple-400 underline underline-offset-2 hover:text-purple-300 transition-colors">
+        Privacy Policy
+      </a>
+      for details.
+    </p>
+    <div class="flex items-center gap-2 shrink-0">
+      <button
+        id="cookie-decline"
+        class="px-4 py-2 text-sm font-medium text-white/50 hover:text-white/80 transition-colors rounded-md"
+      >
+        Decline
+      </button>
+      <button
+        id="cookie-accept"
+        class="px-4 py-2 text-sm font-medium text-white bg-purple-600 hover:bg-purple-500 transition-colors rounded-md"
+      >
+        Accept
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const declineBtn = document.getElementById('cookie-decline');
+
+  function hideBanner() {
+    if (banner) {
+      banner.classList.add('translate-y-full');
+      banner.classList.remove('translate-y-0');
+    }
+  }
+
+  function showBanner() {
+    if (banner) {
+      banner.classList.remove('translate-y-full');
+      banner.classList.add('translate-y-0');
+    }
+  }
+
+  // Check if consent already given
+  const consent = localStorage.getItem('cookie-consent');
+  if (!consent) {
+    // Show banner after 1.5s delay
+    setTimeout(showBanner, 1500);
+  }
+
+  acceptBtn?.addEventListener('click', () => {
+    localStorage.setItem('cookie-consent', 'accepted');
+    hideBanner();
+  });
+
+  declineBtn?.addEventListener('click', () => {
+    localStorage.setItem('cookie-consent', 'declined');
+    hideBanner();
+  });
+</script>
