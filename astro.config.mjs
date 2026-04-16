@@ -3,9 +3,9 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   output: 'static',
-  trailingSlash: 'never',
+  trailingSlash: 'always',
   vite: {
     plugins: [tailwindcss()]
   },
-  site: 'https://app.generativeenginesolutions.com',
+  site: 'https://generativeenginesolutions.com',
 });
