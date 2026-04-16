@@ -13,6 +13,7 @@ const plans = [
     period: '/mo',
     description: 'Start with a free AEO report. No credit card required.',
     credits: '5 credits',
+    pages: 'Up to 5 AEO pages',
     cta: 'Try the free AEO report',
     ctaHref: 'https://app.generativeenginesolutions.com/report/new',
     highlight: false,
@@ -28,6 +29,7 @@ const plans = [
     period: '/mo',
     description: 'For founders and small teams getting started with AEO.',
     credits: '20 credits/mo',
+    pages: 'Up to 20 AEO pages',
     cta: 'Start Starter plan',
     ctaHref: 'https://app.generativeenginesolutions.com/signup?plan=starter',
     highlight: false,
@@ -44,6 +46,7 @@ const plans = [
     period: '/mo',
     description: 'For teams ready to build a systematic AEO and content workflow.',
     credits: '50 credits/mo',
+    pages: 'Up to 50 AEO pages',
     cta: 'Start Growth plan',
     ctaHref: 'https://app.generativeenginesolutions.com/signup?plan=growth',
     highlight: true,
@@ -61,6 +64,7 @@ const plans = [
     period: '/mo',
     description: 'For agencies and enterprises running GEO at scale across multiple brands.',
     credits: '200 credits/mo',
+    pages: 'Up to 200 AEO pages',
     cta: 'Start Scale plan',
     ctaHref: 'https://app.generativeenginesolutions.com/signup?plan=scale',
     highlight: false,
@@ -116,12 +120,21 @@ const creditCosts = [
           <span class="text-sm text-white/50">{plan.period}</span>
         </div>
         <p class="text-sm text-white/60 leading-relaxed mb-3">{plan.description}</p>
-        <div class="inline-flex items-center gap-1.5 bg-white/5 rounded-full px-3 py-1">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="7" cy="7" r="6" stroke="#7C3AED" stroke-width="1.5"/>
-            <path d="M4 7C4 5.343 5.343 4 7 4C8.657 4 10 5.343 10 7C10 8.657 8.657 10 7 10C5.343 10 4 8.657 4 7Z" fill="#7C3AED"/>
-          </svg>
-          <span class="text-xs font-medium text-purple-400">{plan.credits}</span>
+        <div class="flex flex-wrap gap-2">
+          <div class="inline-flex items-center gap-1.5 bg-white/5 rounded-full px-3 py-1">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="7" cy="7" r="6" stroke="#7C3AED" stroke-width="1.5"/>
+              <path d="M4 7C4 5.343 5.343 4 7 4C8.657 4 10 5.343 10 7C10 8.657 8.657 10 7 10C5.343 10 4 8.657 4 7Z" fill="#7C3AED"/>
+            </svg>
+            <span class="text-xs font-medium text-purple-400">{plan.credits}</span>
+          </div>
+          <div class="inline-flex items-center gap-1.5 bg-emerald-400/5 border border-emerald-400/15 rounded-full px-3 py-1">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="2" y="3" width="10" height="8" rx="1" stroke="#34D399" stroke-width="1.2"/>
+              <path d="M5 1v3M9 1v3" stroke="#34D399" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+            <span class="text-xs font-medium text-emerald-400">{plan.pages}</span>
+          </div>
         </div>
       </div>
 
