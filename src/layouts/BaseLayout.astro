@@ -21,6 +21,54 @@ const {
 const siteUrl = 'https://generativeenginesolutions.com';
 const canonicalUrl = `${siteUrl}${canonicalPath}`;
 const ogImageUrl = `${siteUrl}${ogImage}`;
+
+// Site-wide Organization + WebSite schema (sitelinks search box for Google).
+const siteSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${siteUrl}/#organization`,
+      name: 'Generative Engine Solutions',
+      url: siteUrl,
+      description:
+        'Generative Engine Solutions is an all-in-one platform that helps brands move early across the four layers of GEO: AEO, Reputation, Agentic, and Commerce. Start by creating citable pages, decision-stage content, and schema that turn AI engines into a customer acquisition channel.',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${siteUrl}/images/logo-dark.png`,
+      },
+      sameAs: ['https://twitter.com/generativeengin'],
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Services',
+        itemListElement: [
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'SaaS platform with monthly tiers to optimize for GEO.',
+            },
+          },
+        ],
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+      url: siteUrl,
+      name: 'Generative Engine Solutions',
+      publisher: { '@id': `${siteUrl}/#organization` },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${siteUrl}/search?q={search_term_string}`,
+        },
+        'query-input': 'required name=search_term_string',
+      },
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -34,6 +82,7 @@ const ogImageUrl = `${siteUrl}${ogImage}`;
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -63,6 +112,9 @@ const ogImageUrl = `${siteUrl}${ogImage}`;
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Site-wide Organization + WebSite schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(siteSchema)} />
 
     <!-- JSON-LD slot for per-page structured data -->
     <slot name="schema" />
