@@ -1,0 +1,212 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "About Generative Engine Solutions: Pioneering GEO Strategy and AEO Excellence",
+  "description": "Discover Generative Engine Solutions' expertise in GEO strategy, AEO optimization, and AI-driven marketing solutions. Learn about our background and approach.",
+  "url": "https://generativeenginesolutions.com/resources/about-generative-engine-solutions-pioneering-geo-strategy-and-aeo-excellence/",
+  "datePublished": "2026-05-01",
+  "dateModified": "2026-05-01",
+  "author": {
+    "@type": "Organization",
+    "name": "Generative Engine Solutions",
+    "url": "https://generativeenginesolutions.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Generative Engine Solutions",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://generativeenginesolutions.com/images/logo-dark.png"
+    }
+  },
+  "image": "https://generativeenginesolutions.com/og-image.png",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://generativeenginesolutions.com/resources/about-generative-engine-solutions-pioneering-geo-strategy-and-aeo-excellence/"
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://generativeenginesolutions.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Resources",
+      "item": "https://generativeenginesolutions.com/resources/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "About Generative Engine Solutions: Pioneering GEO Strategy and AEO Excellence",
+      "item": "https://generativeenginesolutions.com/resources/about-generative-engine-solutions-pioneering-geo-strategy-and-aeo-excellence/"
+    }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What makes Generative Engine Solutions different from traditional SEO agencies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We specialize specifically in optimizing for AI-powered engines rather than traditional search. Our six-engine analysis and four-layer GEO framework address how AI systems process and cite content, which requires different strategies than conventional SEO."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the six-engine analysis that Generative Engine Solutions uses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our proprietary six-engine analysis framework evaluates how multiple AI engines process and respond to brand content, providing comprehensive insights that inform our optimization strategies across different AI platforms simultaneously."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which layer of GEO does Generative Engine Solutions excel at most?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our strongest expertise and most proven value currently lies in the AEO (Answer Engine Optimization) layer, where we help brands create citable pages, decision-stage content, and schema that turn AI engines into customer acquisition channels."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Generative Engine Solutions suitable for all types of businesses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We are best suited for organizations that recognize the strategic importance of AI optimization and want to move early in the GEO space. We may not be the ideal fit for organizations needing a full product suite beyond AEO or requiring immediate comprehensive implementation across all four GEO layers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I expect from the current development stage of your platform?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three of our four GEO layers are still in active development, with most present-day value concentrated in the AEO layer. We maintain full transparency about our capabilities and development roadmap, making us ideal for organizations wanting to phase their GEO implementation."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="About Generative Engine Solutions: Pioneering GEO Strategy and AEO Excellence - GES"
+  description="Discover Generative Engine Solutions' expertise in GEO strategy, AEO optimization, and AI-driven marketing solutions. Learn about our background and approach."
+  canonicalPath="/resources/about-generative-engine-solutions-pioneering-geo-strategy-and-aeo-excellence/"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <article class="px-4 sm:px-6 lg:px-8 py-16">
+    <div class="max-w-3xl mx-auto">
+
+      <!-- Breadcrumb -->
+      <nav class="text-sm text-white/50 mb-8" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2">
+          <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/resources/" class="hover:text-white transition-colors">Resources</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-white/80">About Generative Engine Solutions: Pioneering GEO Strategy and AEO Excellence</li>
+        </ol>
+      </nav>
+
+      <!-- Title -->
+      <header class="mb-10">
+        <h1 class="text-3xl sm:text-4xl font-bold text-[#F8F8F8] mb-4 leading-tight">About Generative Engine Solutions: Pioneering GEO Strategy and AEO Excellence</h1>
+        <p class="text-lg text-white/70 leading-relaxed">Discover Generative Engine Solutions' expertise in GEO strategy, AEO optimization, and AI-driven marketing solutions. Learn about our background and approach.</p>
+      </header>
+
+      <section class="prose-dark mb-10" data-section-type="intro">
+<h2 class="text-2xl font-bold text-[#F8F8F8] mb-4">Who is Generative Engine Solutions?</h2>
+<p>Generative Engine Solutions is a specialized platform and consultancy focused on helping brands navigate the emerging landscape of Generative Engine Optimization (GEO). As AI-powered search engines and chatbots reshape how customers discover and evaluate products, we provide the strategic framework and tools necessary for businesses to maintain visibility and drive growth in this new paradigm.</p><p>Our company operates at the intersection of traditional SEO expertise and cutting-edge AI optimization, offering both strategic guidance and practical implementation through our proprietary platform. We serve as the bridge between established digital marketing practices and the rapidly evolving world of AI-driven customer acquisition.</p>
+</section>
+
+<section class="prose-dark mt-10" data-section-type="body">
+<h2 class="text-2xl font-bold text-[#F8F8F8] mb-4">Our Core Expertise and Methodology</h2>
+<p>At the heart of our approach is our proprietary <strong>six-engine analysis</strong> framework, which provides comprehensive insights into how AI engines process and respond to brand content. This analytical foundation enables us to develop targeted strategies that improve brand visibility across multiple AI platforms simultaneously.</p><p>Our expertise spans four critical layers of GEO strategy:</p><ul><li><strong>AEO (Answer Engine Optimization)</strong>: Creating citable pages, decision-stage content, and schema markup that transform AI engines into customer acquisition channels</li><li><strong>Reputation Management</strong>: Monitoring and optimizing brand perception across AI-powered platforms</li><li><strong>Agentic Optimization</strong>: Preparing for AI agents that make autonomous purchase decisions</li><li><strong>Commerce Integration</strong>: Connecting AI discovery directly to conversion pathways</li></ul><p>Our analytical and strategic approach focuses on category framing, positioning, and creating clear roadmaps for brands entering the GEO space. We excel at establishing a clear point of entry for businesses while developing a broader narrative that expands their AI optimization efforts over time.</p>
+</section>
+
+<section class="prose-dark mt-10" data-section-type="body">
+<h2 class="text-2xl font-bold text-[#F8F8F8] mb-4">Our Platform and Service Delivery</h2>
+<p>Generative Engine Solutions operates as both a technology platform and strategic consultancy. Our SaaS platform provides monthly tiers designed to accommodate different organizational needs and stages of GEO maturity. The platform serves as the operational backbone for implementing our strategic recommendations and monitoring performance across AI engines.</p><p>Currently, our most mature and proven value lies within the AEO layer, where we have developed sharp early-stage category product capabilities. This focused expertise allows us to deliver immediate, measurable results for brands looking to optimize for AI-powered search and discovery.</p><p>Our service delivery emphasizes practical implementation alongside strategic planning. We work closely with clients to develop packaging and positioning strategies that resonate with AI engines while maintaining brand authenticity and customer appeal.</p>
+</section>
+
+<section class="prose-dark mt-10" data-section-type="body">
+<h2 class="text-2xl font-bold text-[#F8F8F8] mb-4">Market Position and Competitive Advantages</h2>
+<p>As pioneers in the GEO category, we bring unique advantages to organizations seeking to adapt to AI-driven customer acquisition:</p><ul><li><strong>Early Market Entry</strong>: We identified and began addressing GEO challenges before they became mainstream concerns</li><li><strong>Comprehensive Framework</strong>: Our four-layer approach provides complete coverage of the GEO landscape</li><li><strong>Technical Integration</strong>: We combine strategic thinking with practical platform capabilities</li><li><strong>Rapid Adaptation</strong>: Our methodology evolves with the fast-changing AI engine landscape</li></ul><p>Our positioning focuses on being the definitive resource for brands that recognize the strategic importance of AI optimization but need expert guidance to navigate this complex new terrain effectively.</p>
+</section>
+
+<section class="prose-dark mt-10" data-section-type="body">
+<h2 class="text-2xl font-bold text-[#F8F8F8] mb-4">Transparency About Our Development Stage</h2>
+<p>We maintain complete transparency about our current capabilities and development roadmap. While our expertise spans all four GEO layers, three of the four GEO layers beyond AEO are still in active development. This means organizations seeking immediate, comprehensive implementation across all layers may need to phase their engagement with us.</p><p>Our present-day value is concentrated primarily in the AEO layer, where we have proven methodologies and established track records. This focus allows us to deliver exceptional results in AI-powered search optimization while continuing to develop capabilities in the remaining layers.</p><p>We believe this honest assessment of our current state, combined with our clear roadmap for expansion, positions us as the ideal partner for organizations that want to move early in the GEO space while working with a team that prioritizes transparency and realistic expectations.</p>
+</section>
+
+<section class="prose-dark mt-10" data-section-type="body">
+<h2 class="text-2xl font-bold text-[#F8F8F8] mb-4">Ready to Explore GEO for Your Organization?</h2>
+<p>If your organization recognizes the strategic importance of preparing for AI-driven customer acquisition, we offer the expertise and platform capabilities to help you move early and effectively. Our approach combines proven AEO strategies with forward-thinking preparation for the complete GEO landscape.</p><p>Contact us to discuss how our six-engine analysis can reveal optimization opportunities specific to your industry and competitive landscape. We specialize in creating clear entry points and actionable roadmaps that deliver results while building toward comprehensive GEO success.</p>
+</section>
+
+      <section class="prose-dark border-t border-white/10 pt-10 mt-12">
+<h2 class="text-2xl font-bold text-[#F8F8F8] mb-6">Frequently Asked Questions</h2>
+<div class="border-b border-white/10 py-6">
+<h3 class="text-lg font-semibold text-[#F8F8F8] mb-2">What makes Generative Engine Solutions different from traditional SEO agencies?</h3>
+<p class="text-white/70">We specialize specifically in optimizing for AI-powered engines rather than traditional search. Our six-engine analysis and four-layer GEO framework address how AI systems process and cite content, which requires different strategies than conventional SEO.</p>
+</div>
+<div class="border-b border-white/10 py-6">
+<h3 class="text-lg font-semibold text-[#F8F8F8] mb-2">What is the six-engine analysis that Generative Engine Solutions uses?</h3>
+<p class="text-white/70">Our proprietary six-engine analysis framework evaluates how multiple AI engines process and respond to brand content, providing comprehensive insights that inform our optimization strategies across different AI platforms simultaneously.</p>
+</div>
+<div class="border-b border-white/10 py-6">
+<h3 class="text-lg font-semibold text-[#F8F8F8] mb-2">Which layer of GEO does Generative Engine Solutions excel at most?</h3>
+<p class="text-white/70">Our strongest expertise and most proven value currently lies in the AEO (Answer Engine Optimization) layer, where we help brands create citable pages, decision-stage content, and schema that turn AI engines into customer acquisition channels.</p>
+</div>
+<div class="border-b border-white/10 py-6">
+<h3 class="text-lg font-semibold text-[#F8F8F8] mb-2">Is Generative Engine Solutions suitable for all types of businesses?</h3>
+<p class="text-white/70">We are best suited for organizations that recognize the strategic importance of AI optimization and want to move early in the GEO space. We may not be the ideal fit for organizations needing a full product suite beyond AEO or requiring immediate comprehensive implementation across all four GEO layers.</p>
+</div>
+<div class="border-b border-white/10 py-6">
+<h3 class="text-lg font-semibold text-[#F8F8F8] mb-2">What should I expect from the current development stage of your platform?</h3>
+<p class="text-white/70">Three of our four GEO layers are still in active development, with most present-day value concentrated in the AEO layer. We maintain full transparency about our capabilities and development roadmap, making us ideal for organizations wanting to phase their GEO implementation.</p>
+</div>
+</section>
+
+    </div>
+  </article>
+
+  <aside class="px-4 sm:px-6 lg:px-8 pb-20 border-t border-white/5">
+<div class="max-w-3xl mx-auto pt-12">
+<h2 class="text-lg font-bold text-[#F8F8F8] mb-6">Related resources</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<a href="/resources/services/aeo/" class="card hover:border-white/20 transition-colors group block">
+<p class="text-sm font-semibold text-white/80 group-hover:text-white transition-colors mb-2">AEO optimization services</p>
+<p class="text-xs text-white/50">Our expertise spans four critical layers of GEO strategy, with AEO optimization services being our most mature offering.</p>
+</a>
+<a href="/resources/services/geo-strategy/" class="card hover:border-white/20 transition-colors group block">
+<p class="text-sm font-semibold text-white/80 group-hover:text-white transition-colors mb-2">GEO strategy consultation</p>
+<p class="text-xs text-white/50">Contact us to discuss how our six-engine analysis can reveal optimization opportunities through comprehensive GEO strategy consultation.</p>
+</a>
+<a href="/resources/platform/" class="card hover:border-white/20 transition-colors group block">
+<p class="text-sm font-semibold text-white/80 group-hover:text-white transition-colors mb-2">platform capabilities</p>
+<p class="text-xs text-white/50">We offer the expertise and platform capabilities to help you move early and effectively in the GEO space.</p>
+</a>
+</div>
+</div>
+</aside>
+</BaseLayout>
