@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Resources - Generative Engine Solutions",
+  "description": "AEO and Generative Engine Optimization guides, frameworks, and how-tos for marketing teams.",
+  "url": "https://generativeenginesolutions.com/resources/",
+  "isPartOf": { "@id": "https://generativeenginesolutions.com/#website" }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://generativeenginesolutions.com" },
+    { "@type": "ListItem", "position": 2, "name": "Resources", "item": "https://generativeenginesolutions.com/resources/" }
+  ]
+};
+---
+
+<BaseLayout
+  title="Resources - GES"
+  description="AEO and Generative Engine Optimization guides, frameworks, and how-tos. Learn how to get your brand cited by ChatGPT, Perplexity, Claude, Google AI Overview, and more."
+  canonicalPath="/resources/"
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <section class="px-4 sm:px-6 lg:px-8 py-16">
+    <div class="max-w-5xl mx-auto">
+      <header class="mb-12">
+        <h1 class="text-4xl sm:text-5xl font-bold text-[#F8F8F8] mb-4">Resources</h1>
+        <p class="text-lg text-white/70 max-w-2xl leading-relaxed">
+          Guides, frameworks, and how-tos for Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO). Built for marketing teams getting their brands cited across ChatGPT, Perplexity, Claude, Google AI Overview, Gemini, and Copilot.
+        </p>
+      </header>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <a href="/resources/about-generative-engine-solutions-pioneering-geo-strategy-and-aeo-excellence/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">About Generative Engine Solutions: Pioneering GEO Strategy and AEO Excellence</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Discover Generative Engine Solutions' expertise in GEO strategy, AEO optimization, and AI-driven marketing solutions. Learn about our background and approach.</p>
+  </a>
+  <a href="/resources/ai-and-automation-services-generative-engine-solutions/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">AI and Automation Services | Generative Engine Solutions</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Discover Generative Engine Solutions' AI-powered GEO platform with AEO, Reputation, Agentic, and Commerce automation to turn AI engines into acquisition channels.</p>
+  </a>
+  <a href="/resources/ai-automation-services-for-generative-engine-optimization-generative-engine-solu/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">AI & Automation Services for Generative Engine Optimization | Generative Engine Solutions</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Discover our comprehensive GEO platform with AEO modules, structured data, and agent-ready infrastructure to optimize your brand for AI engines and automation.</p>
+  </a>
+  <a href="/resources/ai-powered-geo-solutions-for-business-growth-generative-engine-solutions/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">AI-Powered GEO Solutions for Business Growth | Generative Engine Solutions</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Transform AI engines into customer acquisition channels with our comprehensive GEO platform. Get AI citations, boost organic traffic, and build agent-ready infrastructure.</p>
+  </a>
+  <a href="/resources/before-and-after-product-launch-visibility-in-ai-search-results/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">Before and After: Product Launch Visibility in AI Search Results</h2>
+    <p class="text-sm text-white/60 leading-relaxed">See how one company transformed their product launch from invisible to prominent in AI search results using strategic AEO implementation and optimization.</p>
+  </a>
+  <a href="/resources/best-aeo-tools-vs-traditional-seo-platforms-complete-2024-comparison/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">Best AEO Tools vs Traditional SEO Platforms: Complete 2024 Comparison</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Compare leading AEO tools against traditional SEO platforms. Discover why Answer Engine Optimization requires specialized tools beyond standard SEO software.</p>
+  </a>
+  <a href="/resources/competitive-advantage-staying-ahead-in-ai-search-while-competitors-lag/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">Competitive Advantage: Staying Ahead in AI Search While Competitors Lag</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Learn how early AEO adoption creates sustainable competitive advantages in AI search. Real examples of companies outpacing competitors in ChatGPT and AI Overview.</p>
+  </a>
+  <a href="/resources/data-privacy-considerations-for-aeo-implementation-complete-compliance-guide/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">Data Privacy Considerations for AEO Implementation: Complete Compliance Guide</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Essential data privacy requirements, GDPR compliance, and security considerations when implementing Answer Engine Optimization. Protect user data while optimizing for AI.</p>
+  </a>
+  <a href="/resources/generative-engine-solutions-complete-geo-platform-for-ai-driven-customer-acquisi/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">Generative Engine Solutions: Complete GEO Platform for AI-Driven Customer Acquisition</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Discover how Generative Engine Solutions' all-in-one GEO platform helps brands optimize for AI engines across AEO, Reputation, Agentic, and Commerce layers.</p>
+  </a>
+  <a href="/resources/how-ai-search-results-impact-b2b-brand-visibility-the-complete-guide/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">How AI Search Results Impact B2B Brand Visibility: The Complete Guide</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Discover how AI search engines are transforming B2B brand visibility. Learn strategies to optimize for ChatGPT, Google AI, and emerging AI platforms.</p>
+  </a>
+  <a href="/resources/how-commerce-focused-aeo-features-impact-e-commerce-brands-differently/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">How Commerce-Focused AEO Features Impact E-commerce Brands Differently</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Discover how commerce AEO features drive unique benefits for e-commerce brands through product visibility, purchase optimization, and revenue-focused AI strategies.</p>
+  </a>
+  <a href="/resources/how-do-ai-engines-handle-brand-mentions-and-citations/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">How Do AI Engines Handle Brand Mentions and Citations?</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Learn how ChatGPT, Claude, and other AI engines process brand mentions and citations. Discover strategies to improve your brand's AI visibility.</p>
+  </a>
+  <a href="/resources/how-do-chatgpt-and-ai-assistants-create-vendor-shortlists-for-b2b-purchases/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">How do ChatGPT and AI assistants create vendor shortlists for B2B purchases?</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Discover how AI assistants like ChatGPT build B2B vendor shortlists using training data, knowledge graphs, and real-time inputs. Learn optimization strategies.</p>
+  </a>
+  <a href="/resources/how-do-content-velocity-and-ai-search-performance-correlate/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">How Do Content Velocity and AI Search Performance Correlate?</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Discover the correlation between content velocity and AI search performance. Learn how publishing frequency impacts AEO results and optimization strategies.</p>
+  </a>
+  <a href="/resources/how-to-budget-for-ongoing-aeo-optimization-and-platform-costs/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">How to Budget for Ongoing AEO Optimization and Platform Costs?</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Complete budgeting guide for AEO optimization costs including platform fees, implementation, and ongoing optimization. Learn how to allocate resources effectively.</p>
+  </a>
+  <a href="/resources/how-to-budget-for-ongoing-aeo-optimization-and-platform-costs-3/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">How to Budget for Ongoing AEO Optimization and Platform Costs</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Complete guide to AEO budgeting with cost breakdowns, ROI projections, and strategic planning for answer engine optimization investments in 2024.</p>
+  </a>
+  <a href="/resources/how-to-handle-seasonal-fluctuations-in-ai-search-visibility/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">How to Handle Seasonal Fluctuations in AI Search Visibility</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Learn proven strategies to manage seasonal changes in AI search visibility. Discover how to optimize content for peak periods and maintain momentum year-round.</p>
+  </a>
+  <a href="/resources/how-to-integrate-aeo-workflows-with-existing-content-creation-processes/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">How to Integrate AEO Workflows with Existing Content Creation Processes</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Learn how to seamlessly integrate Answer Engine Optimization workflows into your current content creation processes without disrupting productivity.</p>
+  </a>
+  <a href="/resources/how-to-maintain-consistent-brand-messaging-across-different-ai-engines/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">How to Maintain Consistent Brand Messaging Across Different AI Engines</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Learn proven strategies to ensure your brand messaging stays consistent across ChatGPT, Google AI Overviews, and other AI engines using systematic AEO approaches.</p>
+  </a>
+  <a href="/resources/how-to-prevent-brand-misrepresentation-in-ai-search-results/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">How to Prevent Brand Misrepresentation in AI Search Results</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Learn proven strategies to prevent AI engines from misrepresenting your brand. Protect your reputation with AEO techniques that ensure accurate brand portray</p>
+  </a>
+  <a href="/resources/how-to-scale-aeo-across-multiple-product-lines-and-market-segments/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">How to Scale AEO Across Multiple Product Lines and Market Segments</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Learn how enterprise companies successfully scale Answer Engine Optimization across diverse product portfolios and market segments with strategic frameworks.</p>
+  </a>
+  <a href="/resources/key-evaluation-criteria-for-selecting-an-aeo-platform-a-complete-guide/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">Key Evaluation Criteria for Selecting an AEO Platform: Complete Buyer's Guide</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Discover the 8 essential criteria for evaluating AEO platforms. Learn what features, capabilities, and support factors matter most for AI search optimization success.</p>
+  </a>
+  <a href="/resources/key-evaluation-criteria-for-selecting-an-aeo-platform-in-2024/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">Key Evaluation Criteria for Selecting an AEO Platform in 2024</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Essential criteria for evaluating AEO platforms: technical capabilities, implementation support, reporting features, and long-term value considerations.</p>
+  </a>
+  <a href="/resources/long-term-results-sustained-ai-search-performance-over-12-months/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">Long-term results: Sustained AI search performance over 12 months</h2>
+    <p class="text-sm text-white/60 leading-relaxed">See how one company achieved sustained AI search performance over 12 months using our six-engine analysis and comprehensive GEO strategy across AEO layers.</p>
+  </a>
+  <a href="/resources/reactive-vs-proactive-ai-search-strategies-key-differences-when-to-use-each/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">Reactive vs Proactive AI Search Strategies: Key Differences & When to Use Each</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Learn the crucial differences between reactive and proactive AI search strategies. Discover which approach drives better results for your brand's visibility.</p>
+  </a>
+  <a href="/resources/roi-comparison-traditional-seo-vs-answer-engine-optimization-aeo-in-2024/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">ROI Comparison: Traditional SEO vs Answer Engine Optimization (AEO) in 2024</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Compare ROI metrics between traditional SEO and AEO. Discover why forward-thinking companies are seeing 300% better returns with answer engine optimization.</p>
+  </a>
+  <a href="/resources/team-transformation-how-marketing-teams-adapt-to-aeo-workflows/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">Team transformation: How marketing teams adapt to AEO workflows</h2>
+    <p class="text-sm text-white/60 leading-relaxed">See how marketing teams successfully transform their workflows to implement AEO strategies. Real examples of process changes, skill development, and measurable results.</p>
+  </a>
+  <a href="/resources/what-are-the-key-differences-between-aeo-and-traditional-content-marketing/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">What are the key differences between AEO and traditional content marketing?</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Discover how Answer Engine Optimization (AEO) differs from traditional content marketing in targeting AI engines vs search engines for modern digital success.</p>
+  </a>
+  <a href="/resources/what-are-the-main-challenges-of-ai-answer-accuracy-for-brands/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">What Are the Main Challenges of AI Answer Accuracy for Brands?</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Discover the 6 critical challenges brands face with AI answer accuracy, from source control to brand misrepresentation, plus proven solutions to maintain control.</p>
+  </a>
+  <a href="/resources/what-are-the-ongoing-maintenance-requirements-for-aeo-campaigns/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">What Are the Ongoing Maintenance Requirements for AEO Campaigns?</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Learn the essential ongoing maintenance tasks for AEO campaigns including content updates, schema optimization, and performance monitoring to maintain AI search visibility.</p>
+  </a>
+  <a href="/resources/what-are-the-technical-requirements-for-implementing-comprehensive-aeo/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">What are the technical requirements for implementing comprehensive AEO?</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Learn the technical requirements, infrastructure needs, and implementation steps for comprehensive Answer Engine Optimization across all GEO layers.</p>
+  </a>
+  <a href="/resources/what-backup-strategies-exist-if-primary-ai-engines-deprioritize-your-content/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">What backup strategies exist if primary AI engines deprioritize your content?</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Discover proven backup strategies to maintain AI search visibility when primary engines deprioritize your content. Learn multi-engine optimization approaches.</p>
+  </a>
+  <a href="/resources/what-is-answer-engine-optimization-and-why-does-it-matter-for-b2b-marketing/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">What is Answer Engine Optimization and why does it matter for B2B marketing?</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Answer Engine Optimization (AEO) helps B2B companies get found by ChatGPT, Perplexity, and other AI engines. Learn how AEO transforms customer acquisition.</p>
+  </a>
+  <a href="/resources/what-is-generative-engine-optimization-and-why-does-it-matter/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">What is Generative Engine Optimization and Why Does It Matter?</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Generative Engine Optimization (GEO) helps brands get discovered in AI search results. Learn the four layers of GEO and why it's essential for modern marketing.</p>
+  </a>
+  <a href="/resources/what-is-generative-engine-optimization-geo-and-why-does-it-matter/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">What is Generative Engine Optimization (GEO) and Why Does It Matter?</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Generative Engine Optimization (GEO) is the practice of optimizing content for AI-powered search engines. Learn the four layers of GEO and why it matters for brands.</p>
+  </a>
+  <a href="/resources/what-is-the-difference-between-reactive-and-proactive-ai-search-strategies/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">What is the difference between reactive and proactive AI search strategies?</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Learn the key differences between reactive and proactive AI search strategies, their impact on brand visibility, and why timing matters in answer engine optimization.</p>
+  </a>
+  <a href="/resources/what-is-the-future-of-search-with-generative-ai-engines/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">What is the Future of Search with Generative AI Engines?</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Discover how generative AI engines are transforming search forever. Learn about AEO strategies, multi-engine optimization, and what businesses need to know.</p>
+  </a>
+  <a href="/resources/what-is-the-impact-of-voice-search-on-b2b-lead-generation/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">What is the impact of voice search on B2B lead generation?</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Voice search is transforming B2B lead generation with conversational queries and AI-powered results. Learn how to optimize for voice and AI engines.</p>
+  </a>
+  <a href="/resources/what-training-resources-are-available-for-marketing-teams-using-aeo-tools/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">What Training Resources Are Available for Marketing Teams Using AEO Tools?</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Comprehensive guide to AEO training resources including onboarding, implementation support, and ongoing education for marketing teams optimizing AI search visibility.</p>
+  </a>
+  <a href="/resources/which-answer-engine-optimization-platform-offers-the-most-comprehensive-features/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">Which Answer Engine Optimization Platform Offers the Most Comprehensive Features?</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Compare AEO platform features across the four GEO layers: AEO, Reputation, Agentic, and Commerce. Find the most comprehensive solution for AI search optimization.</p>
+  </a>
+  <a href="/resources/why-are-brands-losing-traffic-to-google-ai-overviews/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">Why Are Brands Losing Traffic to Google AI Overviews?</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Discover why Google AI Overviews are reducing website traffic and how brands can adapt their strategy to maintain visibility in AI-powered search results.</p>
+  </a>
+  <a href="/resources/why-are-brands-losing-traffic-to-google-ai-overviews-complete-analysis-solutions/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">Why Are Brands Losing Traffic to Google AI Overviews? Complete Analysis + Solutions</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Discover why Google AI Overviews are redirecting traffic from your brand pages and learn proven strategies to reclaim visibility in AI-powered search results.</p>
+  </a>
+  <a href="/resources/why-are-brands-losing-traffic-to-google-ai-overviews-the-complete-guide/" class="card hover:border-white/20 transition-colors group block">
+    <h2 class="text-lg font-semibold text-[#F8F8F8] group-hover:text-white transition-colors mb-2">Why Are Brands Losing Traffic to Google AI Overviews? The Complete Guide</h2>
+    <p class="text-sm text-white/60 leading-relaxed">Discover why Google AI Overviews are reducing website traffic and learn proven strategies to optimize your content for AI-powered search results.</p>
+  </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
