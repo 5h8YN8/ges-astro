@@ -168,11 +168,37 @@ rebuilding it, and 7.6b already does the same job with publish gates in front of
 
 ---
 
+## What the first live 7.14 run showed
+
+Run against `isanextgenmaterials.com/compliance/certifications`. It completed and saved a bundle:
+3 verified links, 4 FAQ pairs, `FAQPage` and `speakable` emitted together with the block, correct
+breadcrumbs, no em dashes. All three verifications fired for real: one link was dropped for an
+anchor not present in the copy, and the grounding judge removed one FAQ answer it could not
+support. So the gates work.
+
+Four problems the run exposed, none of them fixed yet:
+
+1. **Soft 404s defeat the source check.** That URL does not exist. The site served its *homepage*
+   with HTTP 200, so the new status check passed and the whole augmentation describes the
+   homepage while being addressed to a compliance page. A status code is not enough; the check
+   needs to compare the returned canonical or title against the requested path.
+2. **The anchor verifier does not decode HTML entities.** `Awards & Certifications` was dropped as
+   "not present in the page" when the page contains `Awards &amp; Certifications`. Real anchors
+   are being discarded.
+3. **Nothing checks that an anchor is topically related to its target.** The run linked the
+   phrase `Macau Headquarters (MIT)` to a page about certifications. Verbatim-in-page and
+   on-allowlist both passed; relevance was never asked about.
+4. **FAQ answers can describe the page instead of answering.** One answer began "The page lists
+   facilities including...". That is meta-commentary, not an answer a buyer or an engine wants.
+
+**`sitemap_urls` for that org contains URLs that do not resolve.** Two of two sampled were dead,
+one hard 404 and one soft. Worth an audit before anything runs in bulk against that list.
+
+---
+
 ## Outstanding
 
-- 7.14 has not been run against a real page. It is the only component without a live run.
-- 7.5's URL branch chains to 7.6b, which rewrites. Once 7.14 has a successful run it should
-  chain there instead, so an existing page is augmented rather than rewritten.
+- The four items above.
 - 7.13 is not yet wired as an automatic pre-step. Call it directly, or add a branch in 7.6b that
   fires it when the page type or question matches regulatory or standards language.
 - 8.3 authenticates with `$env.SUPABASE_SERVICE_ROLE_KEY`; 8.1 and 8.2 are not inspectable over
