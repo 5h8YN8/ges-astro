@@ -176,23 +176,63 @@ breadcrumbs, no em dashes. All three verifications fired for real: one link was 
 anchor not present in the copy, and the grounding judge removed one FAQ answer it could not
 support. So the gates work.
 
-Four problems the run exposed, none of them fixed yet:
+Five problems the run exposed. All are now fixed.
 
-1. **Soft 404s defeat the source check.** That URL does not exist. The site served its *homepage*
-   with HTTP 200, so the new status check passed and the whole augmentation describes the
-   homepage while being addressed to a compliance page. A status code is not enough; the check
-   needs to compare the returned canonical or title against the requested path.
-2. **The anchor verifier does not decode HTML entities.** `Awards & Certifications` was dropped as
-   "not present in the page" when the page contains `Awards &amp; Certifications`. Real anchors
-   are being discarded.
-3. **Nothing checks that an anchor is topically related to its target.** The run linked the
-   phrase `Macau Headquarters (MIT)` to a page about certifications. Verbatim-in-page and
-   on-allowlist both passed; relevance was never asked about.
-4. **FAQ answers can describe the page instead of answering.** One answer began "The page lists
-   facilities including...". That is meta-commentary, not an answer a buyer or an engine wants.
+1. **Soft 404s defeated the source check.** That URL does not exist. The site served its
+   *homepage* with HTTP 200, so a status check passed and the whole augmentation described the
+   homepage while addressed to a compliance page. `Extract Main Content` now reads the page's own
+   canonical link and compares its **final segment** to the requested one.
 
-**`sitemap_urls` for that org contains URLs that do not resolve.** Two of two sampled were dead,
-one hard 404 and one soft. Worth an audit before anything runs in bulk against that list.
+   The first attempt compared whole paths and was too strict: it rejected
+   `anthropic.com/news/skills`, a live page that canonicalises to `/blog/skills` because it moved
+   section. A document that moves keeps its slug; a catch-all returns a different document, and
+   the slug is what separates the two.
+
+2. **The anchor verifier did not decode HTML entities.** `Awards & Certifications` was dropped as
+   absent from a page containing `Awards &amp; Certifications`. Entities are now decoded during
+   extraction, so the role detector, the prompt and the verifier all see the same characters, and
+   the verifier additionally compares on letters and digits only.
+
+3. **The link allowlist mixed published pages with planned ones.** This is the one that would have
+   done damage. The allowlist is built from sibling rows, strategy rows *and* the sitemap, which
+   describe what a site will contain, not what it serves today. Every link the run proposed
+   pointed at an unbuilt page. Installing that bundle on a live page ships broken links to real
+   visitors. Each surviving target is now fetched and must resolve to itself, using the same
+   canonical test. Pass `allow_unpublished_links: true` when the page and its targets ship in the
+   same batch.
+
+4. **Nothing checked that an anchor suited its target.** The run linked `Macau Headquarters (MIT)`
+   to a page about certifications. Verbatim-in-page and on-allowlist both passed; fit was never
+   asked about. The grounding judge now rules on link suitability in the same call, so it costs no
+   extra latency, and unsuitable links are dropped rather than flagged.
+
+5. **FAQ answers could describe the page instead of answering.** One began "The page lists
+   facilities including...". A FAQ answer is read by someone who cannot see the page and is lifted
+   whole into an answer engine, so the prompt forbids it and the verifier drops it.
+
+**Why the ISA URLs 404:** that site has not been updated yet, so its planned pages are not live.
+That is also why point 3 matters: those planned URLs are exactly what the allowlist was offering
+as link targets.
+
+### Verifying the fixes
+
+Three checks, all against the E2E test org so no client data was touched.
+
+- **Soft 404 caught.** Re-running the ISA compliance URL now stops at `Extract Main Content`:
+  *"the server answered 200 but the page it returned declares itself as /isanextgenmaterials, a
+  different document from /compliance/certifications."*
+- **No false positive.** `anthropic.com/news/skills` canonicalises to `/blog/skills` and passes,
+  because the slug is unchanged. The whole-path version had rejected it.
+- **Relevance refusal.** Augmenting that page against an allowlist of 40 unrelated targets
+  produced **zero** proposed links rather than filling the quota, and the gate blocked the run at
+  `0 of 3`. That is the correct outcome: nothing on an Agent Skills announcement belongs linked to
+  a question about flaky tests. The earlier behaviour was to force the count, which is how
+  `Macau Headquarters (MIT)` ended up pointing at a certifications page.
+- **FAQ answers stand alone.** The same run produced five pairs, none referring to the page.
+
+Two fixes remain unexercised, because the run proposed no links to exercise them: entity-decoded
+anchor matching, and the fetch-and-resolve check on link targets. They need a page whose org
+allowlist genuinely relates to it.
 
 ---
 
