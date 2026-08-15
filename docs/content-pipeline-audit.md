@@ -14,6 +14,23 @@ at `2468843`.
 
 ---
 
+## Build status
+
+Remediation is being built as parallel components, then swapped in, so no live client
+pipeline is edited mid-flight.
+
+| Component | State |
+|---|---|
+| `product_detail` page-type contract | Done. [`templates/product-detail.md`](templates/product-detail.md), seeded from `vibe-test-labs-astro` |
+| Renderer aligned to the record contract | Done. [`templates/frontend-contract.md`](templates/frontend-contract.md). Build gate live in `src/lib/page-contract.ts` |
+| **7.12 GES Page Gates** (n8n `fzuyBXwrmo1XxSxh`) | Done, inactive. Contract, similarity, statistic-ledger and answer-judge gates as a callable sub-workflow. Verified in both directions: a record carrying the real defects returns 9 violations across all four gates; a clean record passes with zero. Needs its `anthropicApi` credential bound before live use |
+| 7.6b content creator | Not started. Becomes a copy of 7.6 with four node edits plus a call to 7.12 |
+| 7.4 / 7.5 / 7.6 `faq` role collapse and the DB CHECK constraint | Not started |
+| Service-role JWT in 7.6 `Load Context` | Not started. Still hardcoded in node code |
+| Consolidation of the existing 116 pages | Not started. Plan validated, see §2.3 |
+
+---
+
 ## Part 1 — Template map
 
 ### 1.1 The live page-creation chain (n8n)
