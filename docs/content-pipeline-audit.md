@@ -24,9 +24,9 @@ pipeline is edited mid-flight.
 | `product_detail` page-type contract | Done. [`templates/product-detail.md`](templates/product-detail.md), seeded from `vibe-test-labs-astro` |
 | Renderer aligned to the record contract | Done. [`templates/frontend-contract.md`](templates/frontend-contract.md). Build gate live in `src/lib/page-contract.ts` |
 | **7.12 GES Page Gates** (n8n `fzuyBXwrmo1XxSxh`) | Done, inactive. Contract, similarity, statistic-ledger and answer-judge gates as a callable sub-workflow. Verified in both directions: a record carrying the real defects returns 9 violations across all four gates; a clean record passes with zero. Needs its `anthropicApi` credential bound before live use |
-| 7.6b content creator | Not started. Becomes a copy of 7.6 with four node edits plus a call to 7.12 |
-| 7.4 / 7.5 / 7.6 `faq` role collapse and the DB CHECK constraint | Not started |
-| Service-role JWT in 7.6 `Load Context` | Not started. Still hardcoded in node code |
+| **7.6b GES Content Creator (gated)** (n8n `0KLZkXkRC4fo2iD5`) | Built, inactive, credentials bound. Adds the per-page outline planner, sibling-prose context, the statistic ledger, canonical-question binding, the 7.12 gate call before any write, and a full-document deploy with JSON-LD in the head. Not wired to 7.5 |
+| 7.4 / 7.5 `faq` role collapse and the DB CHECK constraint | Outstanding. 7.6b preserves the real type in `source_page_type` and stores `guide` until the migration lands |
+| Service-role JWT hardcoded in node code | Fixed in 7.6b and 7.12 (reads `SUPABASE_SERVICE_ROLE_KEY`). Still hardcoded in live 7.1, 7.4 and 7.6. The key should be rotated regardless |
 | Consolidation of the existing 116 pages | Not started. Plan validated, see §2.3 |
 
 ---
