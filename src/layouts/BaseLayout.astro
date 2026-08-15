@@ -9,6 +9,15 @@ interface Props {
   description: string;
   canonicalPath?: string;
   ogImage?: string;
+  /**
+   * Structured data for this page, rendered into <head>.
+   *
+   * Prefer this over the named "schema" slot. A `slot` attribute written inside
+   * a nested component targets that component's own slots, not this layout's,
+   * so schema passed that way lands in the body instead of the head. The slot
+   * is kept for pages that pass a Fragment directly as a child of this layout.
+   */
+  schema?: object | object[];
 }
 
 const {
@@ -16,7 +25,10 @@ const {
   description,
   canonicalPath = '/',
   ogImage = '/og-image.png',
+  schema,
 } = Astro.props;
+
+const schemaBlocks = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 
 const siteUrl = 'https://generativeenginesolutions.com';
 const canonicalUrl = `${siteUrl}${canonicalPath}`;
@@ -64,7 +76,10 @@ const ogImageUrl = `${siteUrl}${ogImage}`;
       rel="stylesheet"
     />
 
-    <!-- JSON-LD slot for per-page structured data -->
+    <!-- Structured data: prop first, then the legacy named slot -->
+    {schemaBlocks.map((block) => (
+      <script type="application/ld+json" set:html={JSON.stringify(block)} />
+    ))}
     <slot name="schema" />
   </head>
   <body class="bg-[#0F0F0F] text-[#F8F8F8] min-h-screen">
