@@ -11,18 +11,13 @@
  *  - No inline styles (Tailwind classes only, applied at the component layer)
  */
 
-export interface InternalLink {
-  anchor_text: string;
-  target_url: string;
-  target_title: string;
-}
+// The link and section-type shapes live in the page contract so the renderer,
+// the schema builder and the generator all read one definition. Re-exported
+// here for callers that only import from this module.
+import type { InternalLink, SectionContentType } from "../lib/page-contract";
 
-export type ContentType =
-  | "narrative"
-  | "steps"
-  | "comparison_table"
-  | "definition"
-  | "data_point";
+export type { InternalLink };
+export type ContentType = SectionContentType;
 
 // ---------------------------------------------------------------------------
 // sanitizeForCrawlers
