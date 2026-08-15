@@ -149,7 +149,13 @@ source has been moved onto the `supabaseApi` credential, which injects the `apik
 | 7.4 Content Strategy | key in 4 Code nodes and 1 HTTP node | credential; reads collapse into one `ges_strategy_context` RPC |
 | 7.6 Content Creator | key in 4 Code nodes | **deprecated**, callers moved to 7.6b |
 | 7.10 Sitemap Importer | key in 1 large Code node | credential; fetch and parse stay in Code, all I/O in HTTP nodes |
-| 7.5, 7.7, 7.8, 7.12, 7.13, 7.14, 7.6b | already on the credential | unchanged |
+| 7.5, 7.7, 7.8, 7.9, 7.11, 7.12, 7.13, 7.14, 7.6b | already on the credential, or no Supabase call of their own | unchanged |
+
+**8.3** holds no literal, but its four Supabase nodes authenticate with
+`$env.SUPABASE_SERVICE_ROLE_KEY`. That names the key that was deleted, and expression-level env
+access is blocked by default on n8n Cloud, so those nodes were likely never authenticating. It is
+on the measurement side, which someone else owns, so it has been reported rather than changed.
+**8.1 and 8.2** are not exposed over MCP and could not be inspected.
 
 **The rule this enforces.** A Code node cannot hold an n8n credential, so any Supabase call
 written inside one can only authenticate with a literal. Supabase I/O therefore belongs in HTTP
@@ -169,4 +175,8 @@ rebuilding it, and 7.6b already does the same job with publish gates in front of
   chain there instead, so an existing page is augmented rather than rewritten.
 - 7.13 is not yet wired as an automatic pre-step. Call it directly, or add a branch in 7.6b that
   fires it when the page type or question matches regulatory or standards language.
-- 7.9, 7.11, 8.1, 8.2 and 8.3 have not been checked for hardcoded keys.
+- 8.3 authenticates with `$env.SUPABASE_SERVICE_ROLE_KEY`; 8.1 and 8.2 are not inspectable over
+  MCP. All three belong to the measurement side.
+- **7.9 selects every `strategy_pages` row in every org** with no org filter and no limit, then
+  regenerates each stale one weekly. Nothing here changed that; it is worth a look before the
+  next Monday run.
