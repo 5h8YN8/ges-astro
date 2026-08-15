@@ -24,17 +24,24 @@ pipeline is edited mid-flight.
 | `product_detail` page-type contract | Done. [`templates/product-detail.md`](templates/product-detail.md), seeded from `vibe-test-labs-astro` |
 | Renderer aligned to the record contract | Done. [`templates/frontend-contract.md`](templates/frontend-contract.md). Build gate live in `src/lib/page-contract.ts` |
 | **7.12 GES Page Gates** (n8n `fzuyBXwrmo1XxSxh`) | Done, inactive. Contract, similarity, statistic-ledger and answer-judge gates as a callable sub-workflow. Verified in both directions: a record carrying the real defects returns 9 violations across all four gates; a clean record passes with zero. Needs its `anthropicApi` credential bound before live use |
-| **7.6b GES Content Creator (gated)** (n8n `0KLZkXkRC4fo2iD5`) | Built, inactive, credentials bound. Adds the per-page outline planner, sibling-prose context, the statistic ledger, canonical-question binding, the 7.12 gate call before any write, and a full-document deploy with JSON-LD in the head. Not wired to 7.5 |
-| 7.4 / 7.5 `faq` role collapse and the DB CHECK constraint | Outstanding. 7.6b preserves the real type in `source_page_type` and stores `guide` until the migration lands |
+| **7.6b GES Content Creator (gated)** (n8n `0KLZkXkRC4fo2iD5`) | Built, inactive, credentials bound. Outline planner, sibling-prose context, statistic ledger, canonical-question binding, 7.12 gates before any write, full-document deploy with JSON-LD in the head, and all Supabase I/O on the managed credential. Not yet run end to end; not wired to 7.5 |
 | **7.1b GES Org Schema Builder** (n8n `GLRsvTn7TGkXJahO`) | Built, inactive, on `/ges-schema-b`. Eleven fixes to the org graph, verified against a stress payload |
-| Service-role JWT hardcoded in node code | 7.1b now uses the managed `supabaseApi` credential. Still hardcoded in live 7.1, 7.4, 7.6 and in 7.6b's Code nodes (see below). The key should be rotated regardless |
+| `faq` page type | **Fixed.** `strategy_pages.page_type` and `generated_pages.page_role` CHECK constraints now accept `faq`, and 7.4 maps `faq_page` to `faq` instead of `guide` |
+| 7.4 dropping `reasoning` and `confidence` | **Fixed.** Columns added and always written; see below |
+| Service-role JWT hardcoded in node code | Removed from 7.1b and 7.6b, which use the `supabaseApi` credential. Still hardcoded in live 7.1, 7.4, 7.6 and 7.7. **The key must be rotated** |
+| Consolidation of the existing 116 pages | Not started. Plan validated, see §2.3 |
 
 > **`process.env` is not available in this instance's Code sandbox.** Confirmed by execution: a Code node
-> reading `process.env.SUPABASE_SERVICE_ROLE_KEY` fails with "process is not defined". Two consequences:
-> 7.6b's Code nodes need converting to HTTP Request nodes with the `supabaseApi` credential, the way 7.1b
-> now does it; and **live 7.4 `Prepare Strategy Pages` has a silent failure** — its `reasoning`/`confidence`
-> column probe reads `process.env`, throws, and is swallowed by a `catch`, so `hasReasoningCols` is always
-> false and every strategy row has been written without its `reasoning` and `confidence` values.
+> reading it fails with "process is not defined". n8n Code nodes also cannot use credentials, so any Code
+> node that fetched data had to carry a service-role key in its source. The fix is a split: **HTTP Request
+> nodes with a managed credential do the I/O, Code nodes stay pure transforms.** Three RPCs back that split
+> (`ges_page_context`, `ges_save_generated_page`, `ges_record_deploy`), which also collapses eight sequential
+> reads into one round trip.
+>
+> The same sandbox limit had been corrupting live data: 7.4 `Prepare Strategy Pages` probed for the
+> `reasoning` and `confidence` columns via `process.env`, threw, and the throw was swallowed by its `catch`,
+> so both fields were dropped from every strategy page ever generated. The columns did not exist either.
+> Both are fixed: the columns were added and the probe removed.
 | Consolidation of the existing 116 pages | Not started. Plan validated, see §2.3 |
 
 ---
