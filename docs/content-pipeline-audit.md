@@ -26,7 +26,15 @@ pipeline is edited mid-flight.
 | **7.12 GES Page Gates** (n8n `fzuyBXwrmo1XxSxh`) | Done, inactive. Contract, similarity, statistic-ledger and answer-judge gates as a callable sub-workflow. Verified in both directions: a record carrying the real defects returns 9 violations across all four gates; a clean record passes with zero. Needs its `anthropicApi` credential bound before live use |
 | **7.6b GES Content Creator (gated)** (n8n `0KLZkXkRC4fo2iD5`) | Built, inactive, credentials bound. Adds the per-page outline planner, sibling-prose context, the statistic ledger, canonical-question binding, the 7.12 gate call before any write, and a full-document deploy with JSON-LD in the head. Not wired to 7.5 |
 | 7.4 / 7.5 `faq` role collapse and the DB CHECK constraint | Outstanding. 7.6b preserves the real type in `source_page_type` and stores `guide` until the migration lands |
-| Service-role JWT hardcoded in node code | Fixed in 7.6b and 7.12 (reads `SUPABASE_SERVICE_ROLE_KEY`). Still hardcoded in live 7.1, 7.4 and 7.6. The key should be rotated regardless |
+| **7.1b GES Org Schema Builder** (n8n `GLRsvTn7TGkXJahO`) | Built, inactive, on `/ges-schema-b`. Eleven fixes to the org graph, verified against a stress payload |
+| Service-role JWT hardcoded in node code | 7.1b now uses the managed `supabaseApi` credential. Still hardcoded in live 7.1, 7.4, 7.6 and in 7.6b's Code nodes (see below). The key should be rotated regardless |
+
+> **`process.env` is not available in this instance's Code sandbox.** Confirmed by execution: a Code node
+> reading `process.env.SUPABASE_SERVICE_ROLE_KEY` fails with "process is not defined". Two consequences:
+> 7.6b's Code nodes need converting to HTTP Request nodes with the `supabaseApi` credential, the way 7.1b
+> now does it; and **live 7.4 `Prepare Strategy Pages` has a silent failure** — its `reasoning`/`confidence`
+> column probe reads `process.env`, throws, and is swallowed by a `catch`, so `hasReasoningCols` is always
+> false and every strategy row has been written without its `reasoning` and `confidence` values.
 | Consolidation of the existing 116 pages | Not started. Plan validated, see §2.3 |
 
 ---
